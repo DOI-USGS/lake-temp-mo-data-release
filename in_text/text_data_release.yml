@@ -1,39 +1,41 @@
 title: >-
-  Data release: [your title here]
+  Data release: Predictions of lake water temperatures for eight reservoirs in Missouri US, 1980-2021
 
 
 abstract: >-
-  [a description of this data release]
+  This dataset provides model specifications used to estimate water temperature from the process-based model, 
+  General Lake Model verion 3 (Hipsey et al. 2019) using calibrated model configurations and uncalibrated model 
+  configurations for 8 reservoirs in Missouri, USA. 
       
-authors: ["[NAME 1]", "[NAME 2]"]
-pubdate: 2020 # replace with actual year, e.g., 2020
-doi: https://doi.org/YY.XXXXX/XXXXXX # replace with actual DOI
+authors: ["Julie A Padilla", "Jordan S Read", "Lindsay Platt", "Hayley Corson-Dosch", "Wallace (Andy) Mcaliley"]
+pubdate: 2022 # replace with actual year, e.g., 2020
+doi: https://doi.org/10.5066/P9FY8JQC # replace with actual DOI
 
-build-environment: Multiple computer systems were used to generate these data, including linux, OSX. The open source languages R and Python were used on all systems.
+build-environment: Multiple computer systems were used to generate these data, including linux, OSX. The open source language R was used on all systems.
 
-# ----associated publication----
-larger-cites:
-  -
-    authors: ["Jordan S. Read", "Xiaowei Jia", "Jared Willard", "Alison P. Appling", "Jacob A. Zwart","Samantha K. Oliver","Anuj Karpatne","Gretchen J.A. Hansen", "Paul C. Hanson", "William Watkins", "Michael Steinbach","Vipin Kumar"]
-    title: >-
-      Process-guided deep learning predictions of lake water temperature
-    pubdate: 2019
+# # ----associated publication----
+# larger-cites:
+#   -
+#     authors: ["Jordan S. Read", "Xiaowei Jia", "Jared Willard", "Alison P. Appling", "Jacob A. Zwart","Samantha K. Oliver","Anuj Karpatne","Gretchen J.A. Hansen", "Paul C. Hanson", "William Watkins", "Michael Steinbach","Vipin Kumar"]
+#     title: >-
+#       Process-guided deep learning predictions of lake water temperature
+#     pubdate: 2019
 
-# ----supporting publications----    
-cross-cites:
-  -
-    authors: ['Luke A. Winslow','Gretchen J.A. Hansen','Jordan S. Read','Michael Notaro']
-    title: >-
-      Large-scale modeled contemporary and future water temperature estimates for 10,774 Midwestern U.S. Lakes
-    pubdate: 2017
-    link: http://dx.doi.org/10.1038/sdata.2017.53
+# # ----supporting publications----    
+# cross-cites:
+#   -
+#     authors: ['Luke A. Winslow','Gretchen J.A. Hansen','Jordan S. Read','Michael Notaro']
+#     title: >-
+#       Large-scale modeled contemporary and future water temperature estimates for 10,774 Midwestern U.S. Lakes
+#     pubdate: 2017
+#     link: http://dx.doi.org/10.1038/sdata.2017.53
 
 process-date: !expr format(Sys.time(),'%Y%m%d')
 file-format: a single comma-delimited file and a single zipped shapefile
 
 entities:
   -
-    data-name: example_cars.csv
+    data-name: GLM_calibrated_model_results.zip
     data-description: A csv file containing important information...
     attributes:
     -
@@ -53,7 +55,7 @@ entities:
       data-max: NA
       data-units: NA
   -
-    data-name: example_shapefile.zip
+    data-name: GLM_uncalibrated_model_results.zip
     data-description: A zip file containing...
     attributes:
     -
