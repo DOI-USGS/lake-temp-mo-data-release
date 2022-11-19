@@ -1,14 +1,18 @@
 packages:
   - tidyverse
   - meddle # at least v0.0.12
+  - purrr
   - scipiper
+  - stringr
   - readr
   - sbtools
   - sf
+  - zip # for zip function
 
 sources:
   - src/sb_utils.R
   - src/file_utils.R
+  # - src/lake_mo_utils.R
 
 targets:
   all:
@@ -17,33 +21,81 @@ targets:
     
 
   sf_spatial_data:
-    command: st_read('example_data/example_shapefile/example_shapefile.shp')
+    command: st_read('in_data/study_lakes.shp')
     depends:
-      - example_data/example_shapefile/example_shapefile.dbf
-      - example_data/example_shapefile/example_shapefile.prj
-      - example_data/example_shapefile/example_shapefile.shx
+      - in_data/study_lakes.dbf
+      - in_data/study_lakes.prj
+      - in_data/study_lakes.shx
   
   spatial_metadata:
     command: extract_feature(sf_spatial_data)
     
-  out_data/cars.csv:
-    command: file.copy(from = "example_data/example_cars.csv", 
+  # convert crosswalk  
+  out_data/mo_nhdhr_xwalk.csv:
+    command: rds_to_csv(from = "in_data/univ_mo_nhdhr_xwalk.rds", 
       to = target_name, overwrite = TRUE)
   
-  out_data/spatial.zip:
+  # zip study lakes
+  out_data/study_lakes.zip:
     command: sf_to_zip(zip_filename = target_name, 
-      sf_object = sf_spatial_data, layer_name = I('spatial_data'))
+      sf_object = sf_spatial_data, layer_name = I('study_lakes'))
+      
+  # list and zip MET drivers
+  met_data_files:
+    command: list.files('in_data/NLDAS_GLM_csvs', full.names = TRUE)
+    
+  out_data/NLDAS_GLM_csv.zip:
+    command: zip(zipfile = target_name, files = met_data_files)    
+  
+  # Temperture observations - list and zip files
+  temp_obs_files:
+    command: find_temp_obs(dir_in = I('in_data'))
 
+  out_data/temperature_obs.zip:
+    command: zip(zipfile = target_name, files = temp_obs_files)
+    
+  # GLM, uncalibrated nml files - list, rename, and zip
+  uncal_glm_nml_files:
+    command: rename_nml_files(dir_in = 'in_data/2_run/out', dir_out = I('in_data/uncal_nml_files'))
+
+  out_data/uncal_glm_nml.zip:
+    command: zip(zipfile = target_name, files = uncal_glm_nml_files)  
+    
+  # GLM, calibrated nml files - list, rename, and zip
+  cal_glm_nml_files:
+    command: rename_nml_files(dir_in = 'in_data/3_calibrate/out/all', dir_out = I('in_data/cal_nml_files'))
+
+  out_data/cal_glm_nml.zip:
+    command: zip(zipfile = target_name, files = cal_glm_nml_files)
+ 
+  # uncalibrated temperature profiles - convert file formats and zip
+  uncal_profile_files:
+    command: feather_to_csv(dir_in = 'in_data/4_extract/out/uncalibrated', dir_out = I('in_data/uncal_profile_results'))
+    
+  out_data/uncal_profile_results.zip:
+    command: zip(zipfile = target_name, files = uncal_profile_files)
+    
+  # calibrated temperature profiles - convert file formats and zip
+  cal_profile_files:
+    command: feather_to_csv(dir_in = 'in_data/4_extract/out/calibrated/all', dir_out = I('in_data/cal_profile_results'))
+    
+  out_data/cal_profile_results.zip:
+    command: zip(zipfile = target_name, files = uncal_profile_files)     
+    
+  # create metadata xml  
   out_xml/fgdc_metadata.xml:
     command: render(filename = target_name,
       "in_text/text_data_release.yml",
       spatial_metadata)
     
-  log/sb_posted_files.csv:
-    command: sb_replace_files(filename = target_name, 
-      sb_id = I('5faaac68d34eb413d5df1f22'),
-      "out_data/spatial.zip",
-      "out_data/cars.csv",
-      "out_xml/fgdc_metadata.xml",
-      sources = "src/sb_utils.R")
-      
+  # log/sb_posted_files.csv:
+  #   command: sb_replace_files(filename = target_name, 
+  #     sb_id = sbid,
+  #     "out_data/spatial.zip",
+  #     "out_data/cars.csv",
+  #     "out_xml/fgdc_metadata.xml",
+  #     sources = "src/sb_utils.R")
+
+# -------- SB IDs ----------
+sbid:
+    command: c(I('5db761e7e4b0b0c58b5a4978'))      
