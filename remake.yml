@@ -46,36 +46,36 @@ targets:
     
   out_data/NLDAS_GLM_csv.zip:
     command: zip(zipfile = target_name, files = met_data_files)    
-    
-  # list, rename, and zip uncalibrated GLM files
-  uncal_glm_nml_files:
-    command: rename_nml_files(dir_in = 'in_data/2_run/out', dir_out = I('in_data/uncal_nml_files'))
-
-  out_data/uncal_glm_nml.zip:
-    command: zip(zipfile = target_name, files = uncal_glm_nml_files)  
-    
-  # list, rename, and zip calibrated GLM files
-  cal_glm_nml_files:
-    command: rename_nml_files(dir_in = 'in_data/3_calibrate/out/all', dir_out = I('in_data/cal_nml_files'))
-
-  out_data/cal_glm_nml.zip:
-    command: zip(zipfile = target_name, files = cal_glm_nml_files)
-    
-  # list and zip temperature obs files
+  
+  # Temperture observations - list and zip files
   temp_obs_files:
     command: find_temp_obs(dir_in = I('in_data'))
 
   out_data/temperature_obs.zip:
     command: zip(zipfile = target_name, files = temp_obs_files)
     
-  # list and zip uncal profile files
+  # GLM, uncalibrated nml files - list, rename, and zip
+  uncal_glm_nml_files:
+    command: rename_nml_files(dir_in = 'in_data/2_run/out', dir_out = I('in_data/uncal_nml_files'))
+
+  out_data/uncal_glm_nml.zip:
+    command: zip(zipfile = target_name, files = uncal_glm_nml_files)  
+    
+  # GLM, calibrated nml files - list, rename, and zip
+  cal_glm_nml_files:
+    command: rename_nml_files(dir_in = 'in_data/3_calibrate/out/all', dir_out = I('in_data/cal_nml_files'))
+
+  out_data/cal_glm_nml.zip:
+    command: zip(zipfile = target_name, files = cal_glm_nml_files)
+ 
+  # uncalibrated temperature profiles - convert file formats and zip
   uncal_profile_files:
     command: feather_to_csv(dir_in = 'in_data/4_extract/out/uncalibrated', dir_out = I('in_data/uncal_profile_results'))
     
   out_data/uncal_profile_results.zip:
     command: zip(zipfile = target_name, files = uncal_profile_files)
     
-  # list and zip cal profile files
+  # calibrated temperature profiles - convert file formats and zip
   cal_profile_files:
     command: feather_to_csv(dir_in = 'in_data/4_extract/out/calibrated/all', dir_out = I('in_data/cal_profile_results'))
     
