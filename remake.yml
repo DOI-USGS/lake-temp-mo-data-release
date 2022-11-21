@@ -27,6 +27,7 @@ targets:
       - in_data/study_lakes.prj
       - in_data/study_lakes.shx
   
+  # Need to run `sf_use_s2(FALSE)` to get this to work
   spatial_metadata:
     command: extract_feature(sf_spatial_data)
     
@@ -46,38 +47,41 @@ targets:
     
   out_data/NLDAS_GLM_csv.zip:
     command: zip(zipfile = target_name, files = met_data_files, mode = I('cherry-pick'))    
-  
-  # Temperture observations - list and zip files
-  temp_obs_files:
-    command: find_temp_obs(dir_in = I('in_data'))
 
+  # Temperature observations - list, convert, and zip
+  temp_obs_rds:
+    command: find_temp_obs(dir_in = I('in_data'))
+  
+  temp_obs_csv:
+    command: convert_file_to_csv(dir_in = 'in_data/field_data_all', dir_out = I('in_data/00_files_to_zip/temperature_obs'))
+  
   out_data/temperature_obs.zip:
-    command: zip(zipfile = target_name, files = temp_obs_files, mode = I('cherry-pick'))
+    command: zip(zipfile = target_name, files = temp_obs_csv, mode = I('cherry-pick'))
     
   # GLM, uncalibrated nml files - list, rename, and zip
   uncal_glm_nml_files:
-    command: rename_nml_files(dir_in = 'in_data/2_run/out', dir_out = I('in_data/uncal_nml_files'), cal_nml = I(FALSE))
+    command: rename_nml_files(dir_in = 'in_data/2_run/out', dir_out = I('in_data/00_files_to_zip/uncal_nml_files'), cal_nml = I(FALSE))
 
   out_data/uncal_glm_nml.zip:
     command: zip(zipfile = target_name, files = uncal_glm_nml_files, mode = I('cherry-pick'))  
     
   # GLM, calibrated nml files - list, rename, and zip
   cal_glm_nml_files:
-    command: rename_nml_files(dir_in = 'in_data/3_calibrate/out/all', dir_out = I('in_data/cal_nml_files'), cal_nml = I(TRUE))
+    command: rename_nml_files(dir_in = 'in_data/3_calibrate/out/all', dir_out = I('in_data/00_files_to_zip/files_to_zip/cal_nml_files'), cal_nml = I(TRUE))
 
   out_data/cal_glm_nml.zip:
     command: zip(zipfile = target_name, files = cal_glm_nml_files, mode = I('cherry-pick'))
  
   # uncalibrated temperature profiles - convert file formats and zip
   uncal_profile_files:
-    command: feather_to_csv(dir_in = 'in_data/4_extract/out/uncalibrated', dir_out = I('in_data/uncal_profile_results'))
+    command: convert_file_to_csv(dir_in = 'in_data/4_extract/out/uncalibrated', dir_out = I('in_data/00_files_to_zip/uncal_profile_results'))
     
   out_data/uncal_profile_results.zip:
     command: zip(zipfile = target_name, files = uncal_profile_files, mode = I('cherry-pick'))
     
   # calibrated temperature profiles - convert file formats and zip
   cal_profile_files:
-    command: feather_to_csv(dir_in = 'in_data/4_extract/out/calibrated/all', dir_out = I('in_data/cal_profile_results'))
+    command: convert_file_to_csv(dir_in = 'in_data/4_extract/out/calibrated/all', dir_out = I('in_data/00_files_to_zip/cal_profile_results'))
     
   out_data/cal_profile_results.zip:
     command: zip(zipfile = target_name, files = cal_profile_files, mode = I('cherry-pick'))     
@@ -98,4 +102,4 @@ targets:
 
 # # -------- SB IDs ----------
 # sbid:
-#     command: c(I('5db761e7e4b0b0c58b5a4978'))      
+#     command: c(I('63659da3d34ebe442507d10b'))      

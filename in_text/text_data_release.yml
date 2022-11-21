@@ -159,10 +159,10 @@ entities:
     data-description: >- 
       A zip file containing  8 csvs with temperature depth profiles for each 
       modeled reservoir. Files within the zip are named "field_data_ndhhr_{Prmnn_I}.csv".
-      Data were aggregated from national-, state-, and local-level sources. The 
-      format of the data is identical for each file. Temperature observations 
-      can be matched to each reservoir using the nhdrhr_{Prmnn_I} component of 
-      the file naming schema.
+      These data were used to calibrate each of the 8 models and were aggregated 
+      from national-, state-, and local-level sources. The format of the data is 
+      identical for each file. Temperature observations can be matched to each 
+      reservoir using the nhdrhr_{Prmnn_I} component of the file naming schema.
     attributes:
     -
       attr-label: date
