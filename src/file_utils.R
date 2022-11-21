@@ -18,11 +18,11 @@ sf_to_zip <- function(zip_filename, sf_object, layer_name){
 
 rds_to_csv <- function(in_file, out_file) {
   x <-readRDS(in_file)
-  readr::write_csv(x, out)
+  readr::write_csv(x, out_file)
 }
 
 feather_to_csv <- function(dir_in, dir_out) {
-
+  # browser()
   # id files and prep file names
   filepath_in <- list.files(dir_in, full.names = TRUE)
   files_csv <- sub('.feather', '.csv', basename(filepath_in))
@@ -40,7 +40,8 @@ feather_to_csv <- function(dir_in, dir_out) {
   purrr::map2(data, filepath_out, 
               ~ readr::write_csv(.x, .y))
   
-  return(filepath_out)
+  csv_out <- list.files(dir_out, full.names = TRUE)
+  return(csv_out)
 
 }
 
