@@ -135,41 +135,170 @@ entities:
       data-units: NA
   -
     data-name: uncal_glm_nml.zip
-    data-description: A csv file containing important information...
+    data-description: A zip file containing many uncalibrated glm3.nml files, one for each lake in this study.
     attributes:
     -
-      attr-label: speed
-      attr-def: definition of column_name_1
-      attr-defs: >-
-        citation or URL of column_name_1. If citation, should appear in cross-cites. Can use NA or "This release"
+      attr-label: glm_setup
+      attr-def: parameters for setting up the General Lake Model and defining constants
+      attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
-      attr-label: dist
-      attr-def: definition of column_name_2
-      attr-defs: >-
-        citation or URL of column_name_2. If citation, should appear in cross-cites. Can use NA or "This release"
+      attr-label: mixing
+      attr-def: parameters describing the depth/area relationship of the lake for the General Lake Model
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: morphometry
+      attr-def: parameters describing the depth/area relationship of the lake for the General Lake Model
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: time
+      attr-def: parameters describing the time period and frequency of model runs for the General Lake Model
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: output
+      attr-def: parameters describing how the outputs of model runs from the General Lake Model are written
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: init_profiles
+      attr-def: parameters describing General Lake Model initial conditions
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: meteorology
+      attr-def: parameters describing time series drivers of General Lake Model runs
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: bird_model
+      attr-def: parameters describing the use (if applicable) of the Bird model for General Lake Model runs
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: light
+      attr-def: parameters describing inflows to the General Lake Model
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: inflow
+      attr-def: parameters describing inflows to the General Lake Model
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: outflow
+      attr-def: parameters describing outflows from the General Lake Model
+      attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
   -
     data-name: cal_glm_nml.zip
-    data-description: A csv file containing important information...
+    data-description: A zip file containing many calibrated glm3.nml files, one for each lake in this study.
     attributes:
     -
-      attr-label: speed
-      attr-def: definition of column_name_1
-      attr-defs: >-
-        citation or URL of column_name_1. If citation, should appear in cross-cites. Can use NA or "This release"
+      attr-label: glm_setup
+      attr-def: parameters for setting up the General Lake Model and defining constants
+      attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
-      attr-label: dist
-      attr-def: definition of column_name_2
-      attr-defs: >-
-        citation or URL of column_name_2. If citation, should appear in cross-cites. Can use NA or "This release"
+      attr-label: mixing
+      attr-def: parameters describing the depth/area relationship of the lake for the General Lake Model
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: morphometry
+      attr-def: parameters describing the depth/area relationship of the lake for the General Lake Model
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: time
+      attr-def: parameters describing the time period and frequency of model runs for the General Lake Model
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: output
+      attr-def: parameters describing how the outputs of model runs from the General Lake Model are written
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: init_profiles
+      attr-def: parameters describing General Lake Model initial conditions
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: meteorology
+      attr-def: parameters describing time series drivers of General Lake Model runs
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: bird_model
+      attr-def: parameters describing the use (if applicable) of the Bird model for General Lake Model runs
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: light
+      attr-def: parameters describing inflows to the General Lake Model
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: inflow
+      attr-def: parameters describing inflows to the General Lake Model
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: outflow
+      attr-def: parameters describing outflows from the General Lake Model
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: debugging
+      attr-def: parameters describing outflows from the General Lake Model
+      attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
@@ -178,18 +307,97 @@ entities:
     data-description: A zip file containing...
     attributes:
     -
-      attr-label: x
-      attr-def: definition of x
-      attr-defs: >-
-        citation or URL of x. If citation, should appear in cross-cites. Can use NA or "This release"
+      attr-label: glm_setup
+      attr-def: parameters for setting up the General Lake Model and defining constants
+      attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
-      data-units: NA  
+      data-units: NA
     -
-      attr-label: y
-      attr-def: definition of y
-      attr-defs: >-
-        citation or URL of y. If citation, should appear in cross-cites. Can use NA or "This release"
+      attr-label: mixing
+      attr-def: parameters describing the depth/area relationship of the lake for the General Lake Model
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: morphometry
+      attr-def: parameters describing the depth/area relationship of the lake for the General Lake Model
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: time
+      attr-def: parameters describing the time period and frequency of model runs for the General Lake Model
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: output
+      attr-def: parameters describing how the outputs of model runs from the General Lake Model are written
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: init_profiles
+      attr-def: parameters describing General Lake Model initial conditions
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: meteorology
+      attr-def: parameters describing time series drivers of General Lake Model runs
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: bird_model
+      attr-def: parameters describing the use (if applicable) of the Bird model for General Lake Model runs
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: light
+      attr-def: parameters describing inflows to the General Lake Model
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: inflow
+      attr-def: parameters describing inflows to the General Lake Model
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: outflow
+      attr-def: parameters describing outflows from the General Lake Model
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: debugging
+      attr-def: parameters describing outflows from the General Lake Model
+      attr-defs: Hipsey et al. 2019
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: results
+      attr-def: >-
+        parameters describing the results of the model calibration. Includes the final root means squared error (RMSE), the time 
+        the simulation was run (sim_time), the parameters used for calibration (params), the final calibrated values (values), 
+        the values used the scale the parameters of interest during calibration (parscale), a field to indicate that the nlm 
+        is for a calibrated model (calibrated), and information about the version of GLM used to run the model (glm_version).
+      attr-defs: 
       data-min: NA
       data-max: NA
       data-units: NA
