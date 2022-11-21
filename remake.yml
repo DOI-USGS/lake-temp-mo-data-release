@@ -56,14 +56,14 @@ targets:
     
   # GLM, uncalibrated nml files - list, rename, and zip
   uncal_glm_nml_files:
-    command: rename_nml_files(dir_in = 'in_data/2_run/out', dir_out = I('in_data/uncal_nml_files'))
+    command: rename_nml_files(dir_in = 'in_data/2_run/out', dir_out = I('in_data/uncal_nml_files'), cal_nml = I(FALSE))
 
   out_data/uncal_glm_nml.zip:
     command: zip(zipfile = target_name, files = uncal_glm_nml_files, mode = I('cherry-pick'))  
     
   # GLM, calibrated nml files - list, rename, and zip
   cal_glm_nml_files:
-    command: rename_nml_files(dir_in = 'in_data/3_calibrate/out/all', dir_out = I('in_data/cal_nml_files'))
+    command: rename_nml_files(dir_in = 'in_data/3_calibrate/out/all', dir_out = I('in_data/cal_nml_files'), cal_nml = I(TRUE))
 
   out_data/cal_glm_nml.zip:
     command: zip(zipfile = target_name, files = cal_glm_nml_files, mode = I('cherry-pick'))

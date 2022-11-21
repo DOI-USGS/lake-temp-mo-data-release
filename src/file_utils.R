@@ -45,12 +45,17 @@ feather_to_csv <- function(dir_in, dir_out) {
 
 }
 
-rename_nml_files <- function(dir_in, dir_out) {
+rename_nml_files <- function(dir_in, dir_out, cal_nml = FALSE) {
   # browser()
+  
   # list model files and assign output directory
-  model_files_orig <- paste0(list.files(dir_in, full.names = TRUE), '/glm3.nml')
-
-  rename <- str_extract(model_files_orig, '(nhdhr.*)(?=\\/glm3)')
+  if(cal_nml) {
+    model_files_orig <- paste0(list.files(dir_in, full.names = TRUE), '/output/glm_cal.nml')
+    rename <- str_extract(model_files_orig, '(nhdhr.*)(?=\\/output)')
+  } else {
+    model_files_orig <- paste0(list.files(dir_in, full.names = TRUE), '/glm3.nml')
+    rename <- str_extract(model_files_orig, '(nhdhr.*)(?=\\/glm3)')
+  }
 
   model_files_rename <- file.path(dir_out, paste0(rename, '.nml'))
 
@@ -65,6 +70,7 @@ rename_nml_files <- function(dir_in, dir_out) {
   sum_check <- map2(.x = model_files_orig, .y = model_files_rename,
        ~ check_sums(x = .x, y = .y))
 
+  # browser()
   if(!all(unlist(sum_check)))
     stop("hash mismatch detected")
   # browser()
