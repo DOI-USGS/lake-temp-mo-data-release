@@ -35,7 +35,7 @@ file-format: a single comma-delimited file and a single zipped shapefile
 
 entities:
   -
-    data-name: GLM_calibrated_model_results.zip
+    data-name: mo_nhdhr_xwalk.csv
     data-description: A csv file containing important information...
     attributes:
     -
@@ -55,7 +55,27 @@ entities:
       data-max: NA
       data-units: NA
   -
-    data-name: GLM_uncalibrated_model_results.zip
+    data-name: study_lakes.zip
+    data-description: A csv file containing important information...
+    attributes:
+    -
+      attr-label: speed
+      attr-def: definition of column_name_1
+      attr-defs: >-
+        citation or URL of column_name_1. If citation, should appear in cross-cites. Can use NA or "This release"
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: dist
+      attr-def: definition of column_name_2
+      attr-defs: >-
+        citation or URL of column_name_2. If citation, should appear in cross-cites. Can use NA or "This release"
+      data-min: NA
+      data-max: NA
+      data-units: NA
+  -
+    data-name: NLDAS_GLM_csv.zip
     data-description: A zip file containing...
     attributes:
     -
@@ -74,22 +94,113 @@ entities:
       data-min: NA
       data-max: NA
       data-units: NA
+  -
+    data-name: temperature_obs.zip
+    data-description: A zip file containing...
+    attributes:
     -
-      attr-label: z
-      attr-def: definition of z
+      attr-label: x
+      attr-def: definition of x
       attr-defs: >-
-        citation or URL of z. If citation, should appear in cross-cites. Can use NA or "This release"
+        citation or URL of x. If citation, should appear in cross-cites. Can use NA or "This release"
+      data-min: NA
+      data-max: NA
+      data-units: NA  
+    -
+      attr-label: y
+      attr-def: definition of y
+      attr-defs: >-
+        citation or URL of y. If citation, should appear in cross-cites. Can use NA or "This release"
       data-min: NA
       data-max: NA
       data-units: NA
-
+  -
+    data-name: uncal_glm_nml.zip
+    data-description: A csv file containing important information...
+    attributes:
+    -
+      attr-label: speed
+      attr-def: definition of column_name_1
+      attr-defs: >-
+        citation or URL of column_name_1. If citation, should appear in cross-cites. Can use NA or "This release"
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: dist
+      attr-def: definition of column_name_2
+      attr-defs: >-
+        citation or URL of column_name_2. If citation, should appear in cross-cites. Can use NA or "This release"
+      data-min: NA
+      data-max: NA
+      data-units: NA
+  -
+    data-name: cal_glm_nml.zip
+    data-description: A csv file containing important information...
+    attributes:
+    -
+      attr-label: speed
+      attr-def: definition of column_name_1
+      attr-defs: >-
+        citation or URL of column_name_1. If citation, should appear in cross-cites. Can use NA or "This release"
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: dist
+      attr-def: definition of column_name_2
+      attr-defs: >-
+        citation or URL of column_name_2. If citation, should appear in cross-cites. Can use NA or "This release"
+      data-min: NA
+      data-max: NA
+      data-units: NA
+  -
+    data-name: uncal_profile_results.zip
+    data-description: A zip file containing...
+    attributes:
+    -
+      attr-label: x
+      attr-def: definition of x
+      attr-defs: >-
+        citation or URL of x. If citation, should appear in cross-cites. Can use NA or "This release"
+      data-min: NA
+      data-max: NA
+      data-units: NA  
+    -
+      attr-label: y
+      attr-def: definition of y
+      attr-defs: >-
+        citation or URL of y. If citation, should appear in cross-cites. Can use NA or "This release"
+      data-min: NA
+      data-max: NA
+      data-units: NA
+  -
+    data-name: cal_profile_results.zip
+    data-description: A zip file containing...
+    attributes:
+    -
+      attr-label: x
+      attr-def: definition of x
+      attr-defs: >-
+        citation or URL of x. If citation, should appear in cross-cites. Can use NA or "This release"
+      data-min: NA
+      data-max: NA
+      data-units: NA  
+    -
+      attr-label: y
+      attr-def: definition of y
+      attr-defs: >-
+        citation or URL of y. If citation, should appear in cross-cites. Can use NA or "This release"
+      data-min: NA
+      data-max: NA
+      data-units: NA
 
 purpose: Fisheries biology, limnological research, and climate science.
 start-date: 19800401
 end-date: 20191231
 
 update: none planned
-themekeywords: ["machine learning", "deep learning", "hybrid modeling", "water","temperature", "temperate lakes","reservoirs","modeling","climate change","thermal profiles"]
+themekeywords: ["water","temperature", "temperate lakes","reservoirs","modeling","thermal profiles"]
 
 usage-rules: >-
   These data are open access usable via creative commons as long as original data providers are acknowledged
@@ -100,20 +211,20 @@ latitude-res: 0.00001
 longitude-res: 0.00001
 
 # ----contacts----
-contact-person: Jordan S. Read
-contact-phone: 608-821-3922
-contact-email: jread@usgs.gov
-contact-position: Research Civil Engineer
+contact-person: Julie A. Padilla
+contact-phone: 608-821-9901
+contact-email: jpadilla@usgs.gov
+contact-position: Physical Scientist (Data Scientist)
 contact-address: "8505 Research Way"
 contact-city: Middleton
 contact-state: WI
 contact-zip: 53562
 
 metadata-person: Jordan S. Read
-metadata-position: Research Civil Engineer
-metadata-phone: 608-821-3921
+metadata-position: Physical Scientist (Data Scientist)
+metadata-phone: 608-821-9901
 metadata-fax: 608-821-3817
-metadata-email: jread@usgs.gov
+metadata-email: jpadilla@usgs.gov
 metadata-address: "8505 Research Way"
 metadata-city: Middleton
 metadata-state: WI
