@@ -57,9 +57,9 @@ entities:
       data-units: NA
     -
       attr-label: Missouri_ID
-      attr-def: definition of column_name_2
-      attr-defs: >-
+      attr-def: >-
         A state ID number used by the State of Missouri to identify the modeled reservoir.
+      attr-defs: NA
       data-min: NA
       data-max: NA
       data-units: NA
@@ -95,44 +95,96 @@ entities:
       data-units: NA
   -
     data-name: NLDAS_GLM_csv.zip
-    data-description: A zip file containing...
+    data-description: >-
+      A zip file containing 8 csvs - one for each reservoir modeled. Files within 
+      the zip are named "NLDAS_time[0.379366]_x{x}_y{y}.csv" where the x and y 
+      locations are longitude and latitude indices from NLDAS of the 
+      individual meteological data cell (data are from Mitchell et al. 2004). The 
+      format of the data is identical for each file. Meteological files can be
+      matched to the appropriate model nml files using the meteo_fl field in 
+      each nml file.
     attributes:
-    -
-      attr-label: x
-      attr-def: definition of x
-      attr-defs: >-
-        citation or URL of x. If citation, should appear in cross-cites. Can use NA or "This release"
+    - 
+      attr-label: time
+      attr-def: Calendar date
+      attr-defs: NA
       data-min: NA
       data-max: NA
       data-units: NA  
-    -
-      attr-label: y
-      attr-def: definition of y
-      attr-defs: >-
-        citation or URL of y. If citation, should appear in cross-cites. Can use NA or "This release"
+    - 
+      attr-label: ShortWave	
+      attr-def: Daily average incoming shortwave radiation
+      attr-defs: NA
+      data-min: 0
+      data-max: NA
+      data-units: W m^-2
+    - 
+      attr-label: LongWave	
+      attr-def: Daily average incoming longwave radiation
+      attr-defs: NA
       data-min: NA
       data-max: NA
-      data-units: NA
+      data-units: W m^-2	
+    - 
+      attr-label: AirTemp	
+      attr-def: Daily average air temperature
+      attr-defs: NA
+      data-min: NA
+      data-max: NA
+      data-units: degrees C		
+    - 
+      attr-label: RelHum	
+      attr-def: Daily average relative humidity
+      attr-defs: NA
+      data-min: 0
+      data-max: 100
+      data-units: >-
+        %
+    - 
+      attr-label: WindSpeed	
+      attr-def: Daily average windspeed
+      attr-defs: NA
+      data-min: 0
+      data-max: NA
+      data-units: m s^-1 	
+    - 
+      attr-label: Rain	
+      attr-def: Daily cumulative precipitation as rain
+      attr-defs: NA
+      data-min: 0
+      data-max: NA
+      data-units: m day^-1 	
   -
     data-name: temperature_obs.zip
-    data-description: A zip file containing...
+    data-description: >- 
+      A zip file containing  8 csvs with temperature depth profiles for each 
+      modeled reservoir. Files within the zip are named "field_data_ndhhr_{Prmnn_I}.csv".
+      Data were aggregated from national-, state-, and local-level sources. The 
+      format of the data is identical for each file. Temperature observations 
+      can be matched to each reservoir using the nhdrhr_{Prmnn_I} component of 
+      the file naming schema.
     attributes:
     -
-      attr-label: x
-      attr-def: definition of x
-      attr-defs: >-
-        citation or URL of x. If citation, should appear in cross-cites. Can use NA or "This release"
-      data-min: NA
-      data-max: NA
-      data-units: NA  
-    -
-      attr-label: y
-      attr-def: definition of y
-      attr-defs: >-
-        citation or URL of y. If citation, should appear in cross-cites. Can use NA or "This release"
+      attr-label: date
+      attr-def: Calendar date of temperature measurement
+      attr-defs: NA
       data-min: NA
       data-max: NA
       data-units: NA
+    -
+      attr-label: depth
+      attr-def: Depth of temperature measurement below water surface
+      attr-defs: NA
+      data-min: 0
+      data-max: NA
+      data-units: meters
+    -
+      attr-label: temp
+      attr-def: Water temperature
+      attr-defs: NA
+      data-min: NA
+      data-max: NA
+      data-units: degrees C
   -
     data-name: uncal_glm_nml.zip
     data-description: A zip file containing many uncalibrated glm3.nml files, one for each lake in this study.
