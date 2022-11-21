@@ -27,7 +27,7 @@ targets:
       - in_data/study_lakes.prj
       - in_data/study_lakes.shx
   
-  # Need to run `sf_use_s2(FALSE)` to get this to work
+  # Need to run `sf_use_s2(FALSE)` to get this to work (https://github.com/r-spatial/sf/issues/1762)
   spatial_metadata:
     command: extract_feature(sf_spatial_data)
     
@@ -92,14 +92,20 @@ targets:
       "in_text/text_data_release.yml",
       spatial_metadata)
     
-  # log/sb_posted_files.csv:
-  #   command: sb_replace_files(filename = target_name, 
-  #     sb_id = sbid,
-  #     "out_data/spatial.zip",
-  #     "out_data/cars.csv",
-  #     "out_xml/fgdc_metadata.xml",
-  #     sources = "src/sb_utils.R")
+  log/sb_posted_files.csv:
+    command: sb_replace_files(filename = target_name,
+      sb_id = sbid,
+      "out_data/mo_nhdhr_xwalk.csv",
+      "out_data/study_lakes.zip",
+      "out_data/NLDAS_GLM_csv.zip",
+      "out_data/temperature_obs.zip",
+      "out_data/uncal_glm_nml.zip",
+      "out_data/cal_glm_nml.zip",
+      "out_data/uncal_profile_results.zip",
+      "out_data/cal_profile_results.zip",
+      "out_xml/fgdc_metadata.xml",
+      sources = "src/sb_utils.R")
 
-# # -------- SB IDs ----------
-# sbid:
-#     command: c(I('63659da3d34ebe442507d10b'))      
+# -------- SB IDs ----------
+sbid:
+    command: c(I('63659da3d34ebe442507d10b'))
