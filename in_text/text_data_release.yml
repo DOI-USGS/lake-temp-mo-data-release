@@ -37,7 +37,7 @@ cross-cites:
     link: https://doi.org/10.5194/gmd-12-473-2019
 
 process-date: !expr format(Sys.time(),'%Y%m%d')
-file-format: a single comma-delimited file and a single zipped shapefile
+file-format: one comma-delimited file, one zipped shapefile, and six zip files containing csvs and model files
 
 entities:
   -
@@ -100,7 +100,7 @@ entities:
       locations are longitude and latitude indices from NLDAS of the 
       individual meteological data cell (data are from Mitchell et al. 2004). The 
       format of the data is identical for each file. Meteological files can be
-      matched to the appropriate model nml files using the meteo_fl field in 
+      matched to the appropriate model nml files using the "meteo_fl" field in 
       each nml file.
     attributes:
     - 
@@ -161,7 +161,7 @@ entities:
       These data were used to calibrate each of the 8 models and were aggregated 
       from national-, state-, and local-level sources. The format of the data is 
       identical for each file. Temperature observations can be matched to each 
-      reservoir using the nhdhr_{Prmnn_I} component of the file naming schema.
+      reservoir using the "nhdhr_{Prmnn_I}" (or "site_id") component of the file naming schema.
     attributes:
     -
       attr-label: date
@@ -186,7 +186,10 @@ entities:
       data-units: degrees C
   -
     data-name: uncal_glm_nml.zip
-    data-description: A zip file containing many uncalibrated glm3.nml files, one for each lake in this study.
+    data-description: >-
+      A zip file containing 8 uncalibrated glm3.nml files, one for each lake in 
+      this study. The value for "lake_name" in the "morphometry" field is the 
+      mapping for "site_id" for the other datasets included in this release.
     attributes:
     -
       attr-label: glm_setup
@@ -347,9 +350,16 @@ entities:
       data-max: NA
       data-units: NA
     -
-      attr-label: debugging
-      attr-def: parameters describing outflows from the General Lake Model
-      attr-defs: Hipsey et al. 2019
+      attr-label: results
+      attr-def: >-
+        parameters describing final calibration results from the General Lake 
+        Model. Includes root mean squared error (RMSE, in degrees Celsius), 
+        information on when the model was run (sim_tim), the target calibration 
+        parameters (params), the final calibrated values for each parameter (values),
+        scaling factors used in the optimization process (parscale), a flag indicating
+        that the model is calibrated (calibrated), and information about the 
+        version of GLM used to calibrate the model (glm_version).
+      attr-defs: NA
       data-min: NA
       data-max: NA
       data-units: NA
@@ -364,8 +374,8 @@ entities:
       depth is reached. Each column after "time" that starts with "temp_{.}" 
       represents depths starting at zero (reservoir water surface). Predicted 
       temperature observations for each uncalibrated model can be matched to 
-      the appropriate reservoir using the nhdhr_{Prmnn_I} component of the 
-      file naming schema.
+      the appropriate reservoir using the "nhdhr_{Prmnn_I}" (or "site_id") 
+      component of the file naming schema.
     attributes:
     -
       attr-label: time
@@ -401,8 +411,8 @@ entities:
       depth is reached. Each column after "time" that starts with "temp_{.}" 
       represents depths starting at zero (reservoir water surface). Predicted 
       temperature observations for each calibrated model can be matched to 
-      the appropriate reservoir using the nhdhr_{Prmnn_I} component of the 
-      file naming schema.
+      the appropriate reservoir using the "nhdhr_{Prmnn_I}" (or "site_id") 
+      component of the file naming schema.
     attributes:
     -
       attr-label: time
@@ -470,7 +480,18 @@ funding-credits: >-
   This research used resources of the Core Science Analytics and Synthesis Advanced Research Computing program at the U.S. Geological Survey.
 
 process-description: >-
-  [A description of processing]
+  The computing platform for generating data nad metadata was x86_64-w64-mingw32/x64 (64-bit) and R version 4.1.3 (2022-03-10).
+  
+  This dataset was generated using open source tools available in the R programming language (R version 4.1.3 (2022-03-10)).
+  R packages loaded into this envrionment include:
+  
+  sf, version: 1.0-8; glmtools, version: 0.16.0; rLakeAnalyzer, version: 1.11.4.1; 
+  GLM3r, version: 3.1.18; lubridate, version: 1.9.0; timechange, version: 0.1.1; 
+  ncdfgeom, version: 1.1.1; data.table, version: 1.14.2; arrow, version: 7.0.0; 
+  forcats, version: 0.5.1; stringr, version: 1.4.1; dplyr, version: 1.0.10; 
+  purrr, version: 0.3.5; readr, version: 2.1.3; tidyr, version: 1.2.1; 
+  tibble, version: 3.1.8; ggplot2, version: 3.3.5; tidyverse, version: 1.3.2; 
+  targets, version: 0.12.0
 
 distro-person: Jordan S. Read
 liability-statement: >-
