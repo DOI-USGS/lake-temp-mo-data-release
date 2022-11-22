@@ -18,43 +18,55 @@ sf_to_zip <- function(zip_filename, sf_object, layer_name){
 
 rds_to_csv <- function(in_file, out_file) {
   x <-readRDS(in_file)
-  readr::write_csv(x, out)
+  readr::write_csv(x, out_file)
 }
 
-feather_to_csv <- function(dir_in, dir_out) {
-
+convert_file_to_csv <- function(dir_in, dir_out) {
+  # browser()
   # id files and prep file names
   filepath_in <- list.files(dir_in, full.names = TRUE)
-  files_csv <- sub('.feather', '.csv', basename(filepath_in))
+  
+  file_type <- str_extract(filepath_in, '(?<=\\.).*') %>% unique()
+  files_csv <- sub(file_type, 'csv', basename(filepath_in))
   filepath_out <- file.path(dir_out, files_csv)
   
-  # check for ourt directory
+  # check for out directory
   if(!dir.exists(dir_out)) {
-    dir.create((dir_out))
+    dir.create((dir_out), recursive = TRUE)
   }
   
-  # read data in
-  data <- purrr::map(filepath_in, ~ arrow::read_feather(.x))
+  # check data type and read data in
+  if(file_type == 'feather') {
+    data <- purrr::map(filepath_in, ~ arrow::read_feather(.x))
+  } else {
+    data <- purrr::map(filepath_in, ~ readRDS(.x))
+  }
   
   # save as csv
   purrr::map2(data, filepath_out, 
               ~ readr::write_csv(.x, .y))
   
-  return(filepath_out)
+  csv_out <- list.files(dir_out, full.names = TRUE)
+  return(csv_out)
 
 }
 
-rename_nml_files <- function(dir_in, dir_out) {
+rename_nml_files <- function(dir_in, dir_out, cal_nml = FALSE) {
   # browser()
+  
   # list model files and assign output directory
-  model_files_orig <- paste0(list.files(dir_in, full.names = TRUE), '/glm3.nml')
-
-  rename <- str_extract(model_files_orig, '(nhdhr.*)(?=\\/glm3)')
+  if(cal_nml) {
+    model_files_orig <- paste0(list.files(dir_in, full.names = TRUE), '/output/glm_cal.nml')
+    rename <- str_extract(model_files_orig, '(nhdhr.*)(?=\\/output)')
+  } else {
+    model_files_orig <- paste0(list.files(dir_in, full.names = TRUE), '/glm3.nml')
+    rename <- str_extract(model_files_orig, '(nhdhr.*)(?=\\/glm3)')
+  }
 
   model_files_rename <- file.path(dir_out, paste0(rename, '.nml'))
 
   if(!dir.exists(dir_out)) {
-    dir.create((dir_out))
+    dir.create((dir_out), recursive = TRUE)
   }
 
   map2(.x = model_files_orig, .y = model_files_rename,
@@ -64,6 +76,7 @@ rename_nml_files <- function(dir_in, dir_out) {
   sum_check <- map2(.x = model_files_orig, .y = model_files_rename,
        ~ check_sums(x = .x, y = .y))
 
+  # browser()
   if(!all(unlist(sum_check)))
     stop("hash mismatch detected")
   # browser()
