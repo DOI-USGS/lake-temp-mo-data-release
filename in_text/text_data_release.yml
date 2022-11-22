@@ -200,7 +200,7 @@ entities:
       data-units: NA
     -
       attr-label: mixing
-      attr-def: parameters describing the depth/area relationship of the lake for the General Lake Model
+      attr-def: parameters describing the mixing dynamics of the lake for the General Lake Model
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
@@ -270,7 +270,10 @@ entities:
       data-units: NA
   -
     data-name: cal_glm_nml.zip
-    data-description: A zip file containing many calibrated glm3.nml files, one for each lake in this study.
+    data-description: >-
+      A zip file containing 8 calibrated glm3.nml files, one for each lake in 
+      this study. The value for "lake_name" in the "morphometry" field is the 
+      mapping for "site_id" for the other datasets included in this release.
     attributes:
     -
       attr-label: glm_setup
@@ -281,7 +284,7 @@ entities:
       data-units: NA
     -
       attr-label: mixing
-      attr-def: parameters describing the depth/area relationship of the lake for the General Lake Model
+      attr-def: parameters describing the mixing dynamics of the lake for the General Lake Model
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
