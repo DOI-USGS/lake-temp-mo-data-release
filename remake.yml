@@ -18,7 +18,7 @@ targets:
   all:
     depends:
       - log/sb_posted_files.csv
-    
+
 
   sf_spatial_data:
     command: st_read('in_data/study_lakes.shp')
@@ -67,7 +67,7 @@ targets:
     
   # GLM, calibrated nml files - list, rename, and zip
   cal_glm_nml_files:
-    command: rename_nml_files(dir_in = 'in_data/3_calibrate/out/all', dir_out = I('in_data/00_files_to_zip/files_to_zip/cal_nml_files'), cal_nml = I(TRUE))
+    command: rename_nml_files(dir_in = 'in_data/3_calibrate/out/all', dir_out = I('in_data/00_files_to_zip/cal_nml_files'), cal_nml = I(TRUE))
 
   out_data/cal_glm_nml.zip:
     command: zip(zipfile = target_name, files = cal_glm_nml_files, mode = I('cherry-pick'))
@@ -94,7 +94,7 @@ targets:
     
   log/sb_posted_files.csv:
     command: sb_replace_files(filename = target_name,
-      sb_id = sbid,
+      sb_id = I('63659da3d34ebe442507d10b'),
       "out_data/mo_nhdhr_xwalk.csv",
       "out_data/study_lakes.zip",
       "out_data/NLDAS_GLM_csv.zip",
@@ -106,6 +106,6 @@ targets:
       "out_xml/fgdc_metadata.xml",
       sources = "src/sb_utils.R")
 
-# -------- SB IDs ----------
-sbid:
-    command: c(I('63659da3d34ebe442507d10b'))
+# # -------- SB IDs ----------
+# sbid:
+#     command: c(I('63659da3d34ebe442507d10b'))
