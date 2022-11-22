@@ -1,5 +1,4 @@
-# slim-data-release-template
-
+This data release corresponds to the following 2022 data release: "Predictions of lake water temperatures for eight reservoirs in Missouri US, 1980-2021" (doi:10.5066/P9FY8JQC). The modeling to support this data release is contained in [`lake-temperature-missouri-models`](https://github.com/usgs-r/lake-temperature-missouri-models).
 
 ## code
 
@@ -10,7 +9,7 @@ Need to have CRAN package `sbtools` installed
 - Add "write" permissions on the release item for `cidamanager` (this is the `dssecrets` service account)
 - Change the files and the functions in `src/` to what you need
 - Edit data release information in `in_text/text_data_release.yml` to fit your data release and your file names and contents
-- modify the sciencebase indentifier to your parent data release identifier (should be a string that is something like "5faaac68d34eb413d5df1f22")
+- modify the sciencebase identifier to your parent data release identifier (should be a string that is something like "5faaac68d34eb413d5df1f22")
 - run `scmake()`
 - validate your `out_xml/fgdc_metadata.xml` file with the [validator tool](https://mrdata.usgs.gov/validation/)
 - fix any validation errors (usually this requires filling in metadata information in the `in_text/text_data_release.yml` and perhaps looking a the [metadata template](https://raw.githubusercontent.com/USGS-R/meddle/master/inst/extdata/FGDC_template.mustache))
@@ -19,7 +18,6 @@ Need to have CRAN package `sbtools` installed
 ## remake.yml details
 
 This slim template is designed to keep everything in a single remake yaml. So all data munging, manipulation, and file writing happens there, in addition to the sciencebase uploads.
-
 
 This is the single push to sciencebase, it does the xml (metadata) and data at the same time. Because the upload step uses an internal task table, you can specify all files that should be pushed to the same sbid at one time. Again, because the upload step uses an internal task table, data files aren't replaced everytime you fix a metadata typo or add information to a metadata field. The result of the sciencebase push step is a file with timestamps for when each file got pushed that can be checked into GitHub. Having the file with timestamps in GitHub will clearly show when updates were made and will render nicely without having to build the object target locally.
 ```yaml
@@ -71,4 +69,6 @@ Push the files to sciencebase using the `sb_replace_files` function from `src/sb
       sources = "src/sb_utils.R")
 ```
 
+# Acknowledgements
+This repository was derived from the [slim-data-release-template](https://github.com/USGS-R/slim-data-release-template)
 
