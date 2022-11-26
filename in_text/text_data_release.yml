@@ -322,18 +322,18 @@ entities:
       data-max: NA
       data-units: NA
   -
-    data-name: uncal_profile_results.zip
+    data-name: {model_type}_profile_results.zip
     data-description: >-
       A zip file containing 8 csvs with predicted temperature depth profiles 
-      for each uncalibrated reservoir model. Files within the zip are named 
-      "GLM_uncalibrated_ndhhr_{Prmnn_I}_NLDAS.csv". All csv files are formatted 
-      the same for each uncalibrated model - one row represents one day of 
-      temperature predictions at 0.5 meter depth intervals until a maximum
-      depth is reached. Each column after "time" that starts with "temp_{.}" 
-      represents depths starting at zero (reservoir water surface). Predicted 
-      temperature observations for each uncalibrated model can be matched to 
-      the appropriate reservoir using the "nhdhr_{Prmnn_I}" (or "site_id") 
-      component of the file naming schema.
+      for each {model_type} (either "cal" for calibrated or "uncal" for 
+      uncalibrated) reservoir model. Files within the zip are named 
+      "GLM_{model_type}_ndhhr_{Prmnn_I}_NLDAS.csv". All csv files are formatted 
+      the same for each model - one row represents one day of temperature 
+      predictions at 0.5 meter depth intervals until a maximum depth is reached.
+      Each column that starts with "temp_{depth}" represents depths starting at 
+      zero (reservoir water surface). Predicted temperature observations for 
+      each model can be matched to the appropriate reservoir using the 
+      "nhdhr_{Prmnn_I}" (or "site_id") component of the file naming schema.
     attributes:
     -
       attr-label: time
@@ -343,7 +343,7 @@ entities:
       data-max: NA
       data-units: NA
     -
-      attr-label: temp_{.}      
+      attr-label: temp_{depth}      
       attr-def: >-
         Water temperature at a given reservoir depth (in meters) from the surface 
       attr-defs: NA
@@ -357,44 +357,7 @@ entities:
       attr-defs: NA
       data-min: NA
       data-max: NA
-      data-units: NA 
-  -
-    data-name: cal_profile_results.zip
-    data-description: >-
-      A zip file containing 8 csvs with predicted temperature depth profiles 
-      for each calibrated reservoir model. Files within the zip are named 
-      "GLM_calibrated_ndhhr_{Prmnn_I}_NLDAS.csv". All csv files are formatted 
-      the same for each calibrated model - one row represents one day of 
-      temperature predictions at 0.5 meter depth intervals until a maximum
-      depth is reached. Each column after "time" that starts with "temp_{.}" 
-      represents depths starting at zero (reservoir water surface). Predicted 
-      temperature observations for each calibrated model can be matched to 
-      the appropriate reservoir using the "nhdhr_{Prmnn_I}" (or "site_id") 
-      component of the file naming schema.
-    attributes:
-    -
-      attr-label: time
-      attr-def: Calendar date
-      attr-defs: NA
-      data-min: NA
-      data-max: NA
       data-units: NA
-    -
-      attr-label: temp_{.}      
-      attr-def: >-
-        Water temperature at a given reservoir depth (in meters) from the surface 
-      attr-defs: NA
-      data-min: NA
-      data-max: NA
-      data-units: degrees C 
-    -
-      attr-label: ice     
-      attr-def: >-
-        a logical value (TRUE/FALSE) indicating whether or not ice cover is present
-      attr-defs: NA
-      data-min: NA
-      data-max: NA
-      data-units: NA 
 
 purpose: Fisheries biology, limnological research, and climate science.
 start-date: 19800101
