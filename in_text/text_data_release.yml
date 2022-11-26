@@ -9,9 +9,13 @@ abstract: >-
   temperature profiles). This dataset provides estimates of water temperature
   at half meter depths for eight reservoirs in Missouri, USA using version 3 
   of the General Lake Model (Hipsey et al. 2019). Both calibrated and uncalibrated 
-  model configurations, as well as, predicted temperatures for each of the 
-  eight reservoirs are included. In addition, the spatial, observational, and
-  climatic driver datasets required to run the models are available.
+  model configurations (see '*_glm_nml.zip' files), as well as, predicted 
+  temperatures (see '*_profile_results.zip' files) for each of the eight reservoirs 
+  are included. In addition, the spatial, observational, and climatic driver datasets 
+  ('study_lakes.zip', 'temperature_obs.zip', and 'NLDAS_GLM_csv.zip', respectively) 
+  required to run the models are available. Lastly, a crosswalk between the reservoir
+  names and the National Hydrography Dataset High Resolution (NHDHR) identification 
+  codes is provided (see the 'mo_nhdhr_xwalk.csv' file).
   
   This research was funded by the Department of the Interior Northeast and Midwest 
   Climate Adaptation Science Centers with addition financial support from the
