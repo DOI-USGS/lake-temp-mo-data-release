@@ -397,7 +397,9 @@ metadata-date: !expr format(Sys.time(),'%Y%m%d')
 
 accur-test: No formal attribute accuracy tests were conducted.
 funding-credits: >-
-  This study was funded by the [DETAILS HERE]
+  This research was funded by the Department of the Interior Northeast and Midwest 
+  Climate Adaptation Science Centers with addition financial support from the
+  Midwest Glacial Lakes Partnership and the Minnesota Department of Natural Resources.
   This research used resources of the Core Science Analytics and Synthesis 
   Advanced Research Computing program at the U.S. Geological Survey.
 
