@@ -3,11 +3,15 @@ title: >-
 
 
 abstract: >-
-  This dataset provides estimates water temperature from the process-based model, 
-  General Lake Model verion 3 (Hipsey et al. 2019) using calibrated model 
-  configurations and uncalibrated model configurations for 8 reservoirs in 
-  Missouri, USA.  This dataset includes spatial data, observation data, and driver
-  data to run the models.
+  Lake temperature is an important environmental metric for understanding 
+  habitat suitability for many freshwater species and is especially useful
+  when temperatures are predicted throughout the water column (known as
+  temperature profiles). This dataset provides estimates of water temperature
+  at half meter depths for eight reservoirs in Missouri, USA using version 3 
+  of the General Lake Model (Hipsey et al. 2019). Both calibrated and uncalibrated 
+  model configurations, as well as, predicted temperatures for each of the 
+  eight reservoirs are included. In addition, the spatial, observational, and
+  climatic driver datasets required to run the models are available.
   
   This research was funded by the Department of the Interior Northeast and Midwest 
   Climate Adaptation Science Centers with addition financial support from the
