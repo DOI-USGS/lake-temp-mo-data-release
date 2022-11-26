@@ -8,6 +8,10 @@ abstract: >-
   configurations and uncalibrated model configurations for 8 reservoirs in 
   Missouri, USA.  This dataset includes spatial data, observation data, and driver
   data to run the models.
+  
+  This research was funded by the Department of the Interior Northeast and Midwest 
+  Climate Adaptation Science Centers with addition financial support from the
+  Midwest Glacial Lakes Partnership and the Minnesota Department of Natural Resources.
       
 authors: ["Julie A Padilla", "Jordan S Read", "Lindsay Platt", "Hayley Corson-Dosch", "Wallace (Andy) Mcaliley"]
 pubdate: 2022
