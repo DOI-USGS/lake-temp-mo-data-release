@@ -222,94 +222,11 @@ entities:
       data-max: NA
       data-units: degrees C
   -
-    data-name: uncal_glm_nml.zip
+    data-name: {model_type}_glm_nml.zip
     data-description: >-
-      A zip file containing 8 uncalibrated glm3.nml files, one for each lake in 
-      this study. The value for "lake_name" in the "morphometry" field is the 
-      mapping for "site_id" for the other datasets included in this release.
-    attributes:
-    -
-      attr-label: glm_setup
-      attr-def: parameters for setting up the General Lake Model and defining constants
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: mixing
-      attr-def: parameters describing the mixing dynamics of the lake for the General Lake Model
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: morphometry
-      attr-def: parameters describing the depth/area relationship of the lake for the General Lake Model
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: time
-      attr-def: parameters describing the time period and frequency of model runs for the General Lake Model
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: output
-      attr-def: parameters describing how the outputs of model runs from the General Lake Model are written
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: init_profiles
-      attr-def: parameters describing General Lake Model initial conditions
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: meteorology
-      attr-def: parameters describing time series drivers of General Lake Model runs
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: bird_model
-      attr-def: parameters describing the use (if applicable) of the Bird model for General Lake Model runs
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: light
-      attr-def: parameters describing inflows to the General Lake Model
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: inflow
-      attr-def: parameters describing inflows to the General Lake Model
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: outflow
-      attr-def: parameters describing outflows from the General Lake Model
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-  -
-    data-name: cal_glm_nml.zip
-    data-description: >-
-      A zip file containing 8 calibrated glm3.nml files, one for each lake in 
-      this study. The value for "lake_name" in the "morphometry" field is the 
+      A zip file containing 8 glm3.nml files for a {model_type} of "cal" 
+      (calibrated) or "uncal" (uncalibrated). There is one NML file for each lake 
+      in each zip file. The value for "lake_name" in the "morphometry" field is the 
       mapping for "site_id" for the other datasets included in this release.
     attributes:
     -
@@ -392,7 +309,8 @@ entities:
     -
       attr-label: results
       attr-def: >-
-        parameters describing final calibration results from the General Lake 
+        This field is only present for the NML files within the calibrated zip
+        file. Parameters describing final calibration results from the General Lake 
         Model. Includes root mean squared error (RMSE, in degrees Celsius), 
         information on when the model was run (sim_time), the target calibration 
         parameters (params), the final calibrated values for each parameter (values),
