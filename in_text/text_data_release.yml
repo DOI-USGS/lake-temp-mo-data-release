@@ -38,11 +38,23 @@ cross-cites:
     pubdate: 2004
     link: http://dx.doi.org/10.1029/2003JD003823
   -
+    authors: ['Luke A. Winslow', 'Gretchen J.A. Hansen', 'Jordan S. Read', 'Michael Notaro']
+    title: >-
+      Large-scale modeled contemporary and future water temperature estimates for 10,774 Midwestern U.S. Lakes
+    pubdate: 2017
+    link: http://dx.doi.org/10.1038/sdata.2017.53
+  -
     authors: ['Matthew R. Hipsey', 'Louise C. Bruce', 'Casper Boon', 'Brendan Busch', 'Cayelan C. Carey', 'David P. Hamilton', 'Paul C. Hanson', 'Jordan S. Read', 'Eduardo de Sousa', 'Michael Weber', 'Luke A. Winslow']
     title: >-
       A General Lake Model (GLM 3.0) for linking with high-frequency sensor data from the Global Lake Ecological Observatory Network (GLEON).
     pubdate: 2019
     link: https://doi.org/10.5194/gmd-12-473-2019
+  -
+    authors: ['Jordan S. Read', 'Alison A. Appling', 'Samantha K. Oliver', 'Lindsay R.C. Platt', 'Jacob A. Zwart', 'Kelsey Vitense', 'Gretchen J.A. Hansen', 'Hayley Corson-Dosch', 'Holly Kundel']
+    title: >-
+      Data release: Process-based predictions of lake water temperature in the Midwest US
+    pubdate: 2021
+    link: http://dx.doi.org/10.5066/P9CA6XP8
 
 process-date: !expr format(Sys.time(),'%Y%m%d')
 file-format: one comma-delimited file, one zipped shapefile, and six zip files containing csvs and model files
@@ -122,58 +134,66 @@ entities:
     attributes:
     - 
       attr-label: time
-      attr-def: Calendar date
-      attr-defs: NA
+      attr-def: Date of this weather estimate.
+      attr-defs: Read et al., 2021
       data-min: NA
       data-max: NA
       data-units: NA  
     - 
       attr-label: ShortWave	
-      attr-def: Daily average incoming shortwave radiation
-      attr-defs: NA
+      attr-def: >- 
+        Incoming radiant energy with wavelengths between ~300 and ~3000 nm, emitted by the 
+        sun and reaching the lake surface after passing through the atmosphere, as a daily average.
+      attr-defs: Read et al., 2021
       data-min: 0
       data-max: NA
       data-units: W m^-2
     - 
       attr-label: LongWave	
-      attr-def: Daily average incoming longwave radiation
-      attr-defs: NA
+      attr-def: >-
+        Incoming thermal radiation at wavelengths > 3000 nm directed from the atmosphere to 
+        the lake surface, as a daily average.
+      attr-defs: Read et al., 2021
       data-min: NA
       data-max: NA
       data-units: W m^-2	
     - 
       attr-label: AirTemp	
-      attr-def: Daily average air temperature
-      attr-defs: NA
+      attr-def: Air temperature above the surface of the lake, as a daily average.
+      attr-defs: Read et al., 2021
       data-min: NA
       data-max: NA
       data-units: degrees C		
     - 
       attr-label: RelHum	
-      attr-def: Daily average relative humidity
-      attr-defs: NA
+      attr-def: Relative humidity of the air above the surface of the lake, as a daily average.
+      attr-defs: Read et al., 2021
       data-min: 0
       data-max: 100
       data-units: >-
         %
     - 
       attr-label: WindSpeed	
-      attr-def: Daily average windspeed
-      attr-defs: NA
+      attr-def: >- 
+        Speed of the wind above the lake, calculated to a daily number using the methods 
+        described in Winslow et al., 2017.
+      attr-defs: Read et al., 2021
       data-min: 0
       data-max: NA
       data-units: m s^-1 	
     - 
       attr-label: Rain	
-      attr-def: Daily cumulative precipitation as rain
-      attr-defs: NA
+      attr-def: >-
+        Daily rate of rain reaching the lake surface in a day as described in 
+        Winslow et al. 2017; rate as determined by Hipsey et al. 2019.
+      attr-defs: Read et al., 2021
       data-min: 0
       data-max: NA
       data-units: m day^-1 	
   -
     data-name: temperature_obs.zip
     data-description: >- 
-      A zip file containing  8 csvs with temperature depth profiles for each 
+      A zip file containing 8 csvs with temperature depth profiles for each 
       modeled reservoir. Files within the zip are named "field_data_ndhhr_{Prmnn_I}.csv".
       These data were used to calibrate each of the 8 models and were aggregated 
       from national-, state-, and local-level sources. The format of the data is 
