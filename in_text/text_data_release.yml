@@ -93,15 +93,17 @@ entities:
       data-units: NA
   -
     data-name: study_lakes.zip
-    data-description: GIS polygon data for the 8 reservoirs included in this study.
+    data-description: >-
+      GIS polygon data for the 8 reservoirs included in this study. The format is a 
+      shapefile for all lakes combined (.shp, .shx, .dbf, and .prj files).
     attributes:
     -
       attr-label: site_id
       attr-def: >-
-        Site identification number for this dataset. It is the Prmnn_I prefixed 
-        with source, as "nhdhr_{Prmnn_I}". Polygons can can be matched to each 
+        Lake identification number for this dataset. It is the Prmnn_I from NHD high-res 
+        prefixed with source, as "nhdhr_{Prmnn_I}". Polygons can can be matched to each 
         reservoir name using the "nhdhr_{Prmnn_I}" (or "site_id") component of 
-        this attribute table and the "site_id" field in mo_nhdhr_xwalk.csv
+        this attribute table and the "site_id" field in the "mo_nhdhr_xwalk.csv" file.
       attr-defs: >-
         http://nhd.usgs.gov/
       data-min: NA
