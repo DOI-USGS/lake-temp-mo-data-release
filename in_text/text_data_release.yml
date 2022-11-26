@@ -379,20 +379,20 @@ contact-person: Julie A. Padilla
 contact-phone: 608-821-9901
 contact-email: jpadilla@usgs.gov
 contact-position: Physical Scientist (Data Scientist)
-contact-address: "8505 Research Way"
-contact-city: Middleton
+contact-address: "1 Gifford Pinchot Drive"
+contact-city: Madison
 contact-state: WI
-contact-zip: 53562
+contact-zip: 53726
 
 metadata-person: Julie A. Padilla
 metadata-position: Physical Scientist (Data Scientist)
 metadata-phone: 608-821-9901
 metadata-fax: 608-821-3817
 metadata-email: jpadilla@usgs.gov
-metadata-address: "8505 Research Way"
-metadata-city: Middleton
+metadata-address: "1 Gifford Pinchot Drive"
+metadata-city: Madison
 metadata-state: WI
-metadata-zip: 53562
+metadata-zip: 53726
 metadata-date: !expr format(Sys.time(),'%Y%m%d')
 
 accur-test: No formal attribute accuracy tests were conducted.
