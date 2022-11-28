@@ -190,6 +190,15 @@ entities:
       data-min: 0
       data-max: NA
       data-units: m day^-1 	
+    - 
+      attr-label: Snow	
+      attr-def: >-
+        Daily rate of snow reaching the lake surface in a day as described in 
+        Winslow et al. 2017. 
+      attr-defs: Read et al., 2021
+      data-min: 0
+      data-max: NA
+      data-units: m day^-1
   -
     data-name: temperature_obs.zip
     data-description: >- 
