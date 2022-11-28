@@ -3,14 +3,28 @@ title: >-
 
 
 abstract: >-
-  This dataset provides estimates water temperature from the process-based model, 
-  General Lake Model verion 3 (Hipsey et al. 2019) using calibrated model 
-  configurations and uncalibrated model configurations for 8 reservoirs in 
-  Missouri, USA.  This dataset includes spatial data, observation data, and driver
-  data to run the models.
+  Lake temperature is an important environmental metric for understanding 
+  habitat suitability for many freshwater species and is especially useful
+  when temperatures are predicted throughout the water column (known as
+  temperature profiles). This dataset provides estimates of water temperature
+  at half meter depths for eight reservoirs in Missouri, USA using version 3 
+  of the General Lake Model (Hipsey et al. 2019). The reservoirs are [INSERT NAMES]
+  
+  Both calibrated and uncalibrated model configurations (see '*_glm_nml.zip' 
+  files), as well as, predicted temperatures (see '*_profile_results.zip' files) 
+  for each of the eight reservoirs are included. In addition, the spatial, 
+  observational, and climatic driver datasets ('study_lakes.zip', 'temperature_obs.zip', 
+  and 'NLDAS_GLM_csv.zip', respectively) required to run the models are available. 
+  Lastly, a crosswalk between the reservoir names, the National Hydrography 
+  Dataset High Resolution (NHDHR) identification codes, and identifiers defined by
+  the University of Missouri is provided (see the 'mo_nhdhr_xwalk.csv' file).
+  
+  This research was funded by the Department of the Interior Northeast and Midwest 
+  Climate Adaptation Science Centers with addition financial support from the
+  Midwest Glacial Lakes Partnership and the Minnesota Department of Natural Resources.
       
 authors: ["Julie A Padilla", "Jordan S Read", "Lindsay Platt", "Hayley Corson-Dosch", "Wallace (Andy) Mcaliley"]
-pubdate: 2022
+pubdate: 2022-12-15
 doi: https://doi.org/10.5066/P9FY8JQC # replace with actual DOI
 
 build-environment: Multiple computer systems were used to generate these data, including linux, OSX. The open source language R was used on all systems.
@@ -24,11 +38,23 @@ cross-cites:
     pubdate: 2004
     link: http://dx.doi.org/10.1029/2003JD003823
   -
+    authors: ['Luke A. Winslow', 'Gretchen J.A. Hansen', 'Jordan S. Read', 'Michael Notaro']
+    title: >-
+      Large-scale modeled contemporary and future water temperature estimates for 10,774 Midwestern U.S. Lakes
+    pubdate: 2017
+    link: http://dx.doi.org/10.1038/sdata.2017.53
+  -
     authors: ['Matthew R. Hipsey', 'Louise C. Bruce', 'Casper Boon', 'Brendan Busch', 'Cayelan C. Carey', 'David P. Hamilton', 'Paul C. Hanson', 'Jordan S. Read', 'Eduardo de Sousa', 'Michael Weber', 'Luke A. Winslow']
     title: >-
       A General Lake Model (GLM 3.0) for linking with high-frequency sensor data from the Global Lake Ecological Observatory Network (GLEON).
     pubdate: 2019
     link: https://doi.org/10.5194/gmd-12-473-2019
+  -
+    authors: ['Jordan S. Read', 'Alison A. Appling', 'Samantha K. Oliver', 'Lindsay R.C. Platt', 'Jacob A. Zwart', 'Kelsey Vitense', 'Gretchen J.A. Hansen', 'Hayley Corson-Dosch', 'Holly Kundel']
+    title: >-
+      Data release: Process-based predictions of lake water temperature in the Midwest US
+    pubdate: 2021
+    link: http://dx.doi.org/10.5066/P9CA6XP8
 
 process-date: !expr format(Sys.time(),'%Y%m%d')
 file-format: one comma-delimited file, one zipped shapefile, and six zip files containing csvs and model files
@@ -43,8 +69,9 @@ entities:
     -
       attr-label: site_id
       attr-def: >-
-        Site identification number for this dataset. It is the Prmnn_I prefixed with source, as "nhdhr_{Prmnn_I}".
-        This values can 
+        Lake identification number for this dataset. It is the Prmnn_I from NHD high-res 
+        prefixed with source, as "nhdhr_{Prmnn_I}". The ids have a mix of characters and 
+        numbers. Some can include special characters, such as "{" and "}", but not all do.
       attr-defs: >-
         http://nhd.usgs.gov/
       data-min: NA
@@ -53,7 +80,8 @@ entities:
     -
       attr-label: Missouri_ID
       attr-def: >-
-        A state ID number used by the State of Missouri to identify the modeled reservoir.
+        A state-specific ID number used by the University of Missouri to identify the modeled 
+        reservoir. Each number is prefixed with "Missouri_".
       attr-defs: NA
       data-min: NA
       data-max: NA
@@ -61,7 +89,7 @@ entities:
     -
       attr-label: Lake Name
       attr-def: >-
-        The reservoir name used by the state of Missouri to identify the modeled 
+        The reservoir name used by the University of Missouri to identify the modeled 
         reservoir.
       attr-defs: NA
       data-min: NA
@@ -77,15 +105,17 @@ entities:
       data-units: NA
   -
     data-name: study_lakes.zip
-    data-description: GIS polygon data for the 8 reservoirs included in this study.
+    data-description: >-
+      GIS polygon data for the 8 reservoirs included in this study. The format is a 
+      shapefile for all lakes combined (.shp, .shx, .dbf, and .prj files).
     attributes:
     -
       attr-label: site_id
       attr-def: >-
-        Site identification number for this dataset. It is the Prmnn_I prefixed 
-        with source, as "nhdhr_{Prmnn_I}". Polygons can can be matched to each 
+        Lake identification number for this dataset. It is the Prmnn_I from NHD high-res 
+        prefixed with source, as "nhdhr_{Prmnn_I}". Polygons can can be matched to each 
         reservoir name using the "nhdhr_{Prmnn_I}" (or "site_id") component of 
-        this attribute table and the "site_id" field in mo_nhdhr_xwalk.csv
+        this attribute table and the "site_id" field in the "mo_nhdhr_xwalk.csv" file.
       attr-defs: >-
         http://nhd.usgs.gov/
       data-min: NA
@@ -104,58 +134,66 @@ entities:
     attributes:
     - 
       attr-label: time
-      attr-def: Calendar date
-      attr-defs: NA
+      attr-def: Date of this weather estimate.
+      attr-defs: Read et al., 2021
       data-min: NA
       data-max: NA
       data-units: NA  
     - 
       attr-label: ShortWave	
-      attr-def: Daily average incoming shortwave radiation
-      attr-defs: NA
+      attr-def: >- 
+        Incoming radiant energy with wavelengths between ~300 and ~3000 nm, emitted by the 
+        sun and reaching the lake surface after passing through the atmosphere, as a daily average.
+      attr-defs: Read et al., 2021
       data-min: 0
       data-max: NA
       data-units: W m^-2
     - 
       attr-label: LongWave	
-      attr-def: Daily average incoming longwave radiation
-      attr-defs: NA
+      attr-def: >-
+        Incoming thermal radiation at wavelengths > 3000 nm directed from the atmosphere to 
+        the lake surface, as a daily average.
+      attr-defs: Read et al., 2021
       data-min: NA
       data-max: NA
       data-units: W m^-2	
     - 
       attr-label: AirTemp	
-      attr-def: Daily average air temperature
-      attr-defs: NA
+      attr-def: Air temperature above the surface of the lake, as a daily average.
+      attr-defs: Read et al., 2021
       data-min: NA
       data-max: NA
       data-units: degrees C		
     - 
       attr-label: RelHum	
-      attr-def: Daily average relative humidity
-      attr-defs: NA
+      attr-def: Relative humidity of the air above the surface of the lake, as a daily average.
+      attr-defs: Read et al., 2021
       data-min: 0
       data-max: 100
       data-units: >-
         %
     - 
       attr-label: WindSpeed	
-      attr-def: Daily average windspeed
-      attr-defs: NA
+      attr-def: >- 
+        Speed of the wind above the lake, calculated to a daily number using the methods 
+        described in Winslow et al., 2017.
+      attr-defs: Read et al., 2021
       data-min: 0
       data-max: NA
       data-units: m s^-1 	
     - 
       attr-label: Rain	
-      attr-def: Daily cumulative precipitation as rain
-      attr-defs: NA
+      attr-def: >-
+        Daily rate of rain reaching the lake surface in a day as described in 
+        Winslow et al. 2017; rate as determined by Hipsey et al. 2019.
+      attr-defs: Read et al., 2021
       data-min: 0
       data-max: NA
       data-units: m day^-1 	
   -
     data-name: temperature_obs.zip
     data-description: >- 
-      A zip file containing  8 csvs with temperature depth profiles for each 
+      A zip file containing 8 csvs with temperature depth profiles for each 
       modeled reservoir. Files within the zip are named "field_data_ndhhr_{Prmnn_I}.csv".
       These data were used to calibrate each of the 8 models and were aggregated 
       from national-, state-, and local-level sources. The format of the data is 
@@ -184,94 +222,11 @@ entities:
       data-max: NA
       data-units: degrees C
   -
-    data-name: uncal_glm_nml.zip
+    data-name: {model_type}_glm_nml.zip
     data-description: >-
-      A zip file containing 8 uncalibrated glm3.nml files, one for each lake in 
-      this study. The value for "lake_name" in the "morphometry" field is the 
-      mapping for "site_id" for the other datasets included in this release.
-    attributes:
-    -
-      attr-label: glm_setup
-      attr-def: parameters for setting up the General Lake Model and defining constants
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: mixing
-      attr-def: parameters describing the mixing dynamics of the lake for the General Lake Model
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: morphometry
-      attr-def: parameters describing the depth/area relationship of the lake for the General Lake Model
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: time
-      attr-def: parameters describing the time period and frequency of model runs for the General Lake Model
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: output
-      attr-def: parameters describing how the outputs of model runs from the General Lake Model are written
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: init_profiles
-      attr-def: parameters describing General Lake Model initial conditions
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: meteorology
-      attr-def: parameters describing time series drivers of General Lake Model runs
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: bird_model
-      attr-def: parameters describing the use (if applicable) of the Bird model for General Lake Model runs
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: light
-      attr-def: parameters describing inflows to the General Lake Model
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: inflow
-      attr-def: parameters describing inflows to the General Lake Model
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: outflow
-      attr-def: parameters describing outflows from the General Lake Model
-      attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
-      data-units: NA
-  -
-    data-name: cal_glm_nml.zip
-    data-description: >-
-      A zip file containing 8 calibrated glm3.nml files, one for each lake in 
-      this study. The value for "lake_name" in the "morphometry" field is the 
+      A zip file containing 8 glm3.nml files for a {model_type} of "cal" 
+      (calibrated) or "uncal" (uncalibrated). There is one NML file for each lake 
+      in each zip file. The value for "lake_name" in the "morphometry" field is the 
       mapping for "site_id" for the other datasets included in this release.
     attributes:
     -
@@ -354,7 +309,8 @@ entities:
     -
       attr-label: results
       attr-def: >-
-        parameters describing final calibration results from the General Lake 
+        This field is only present for the NML files within the calibrated zip
+        file. Parameters describing final calibration results from the General Lake 
         Model. Includes root mean squared error (RMSE, in degrees Celsius), 
         information on when the model was run (sim_time), the target calibration 
         parameters (params), the final calibrated values for each parameter (values),
@@ -366,18 +322,18 @@ entities:
       data-max: NA
       data-units: NA
   -
-    data-name: uncal_profile_results.zip
+    data-name: {model_type}_profile_results.zip
     data-description: >-
       A zip file containing 8 csvs with predicted temperature depth profiles 
-      for each uncalibrated reservoir model. Files within the zip are named 
-      "GLM_uncalibrated_ndhhr_{Prmnn_I}_NLDAS.csv". All csv files are formatted 
-      the same for each uncalibrated model - one row represents one day of 
-      temperature predictions at 0.5 meter depth intervals until a maximum
-      depth is reached. Each column after "time" that starts with "temp_{.}" 
-      represents depths starting at zero (reservoir water surface). Predicted 
-      temperature observations for each uncalibrated model can be matched to 
-      the appropriate reservoir using the "nhdhr_{Prmnn_I}" (or "site_id") 
-      component of the file naming schema.
+      for each {model_type} (either "cal" for calibrated or "uncal" for 
+      uncalibrated) reservoir model. Files within the zip are named 
+      "GLM_{model_type}_ndhhr_{Prmnn_I}_NLDAS.csv". All csv files are formatted 
+      the same for each model - one row represents one day of temperature 
+      predictions at 0.5 meter depth intervals until a maximum depth is reached.
+      Each column that starts with "temp_{depth}" represents depths starting at 
+      zero (reservoir water surface). Predicted temperature observations for 
+      each model can be matched to the appropriate reservoir using the 
+      "nhdhr_{Prmnn_I}" (or "site_id") component of the file naming schema.
     attributes:
     -
       attr-label: time
@@ -387,7 +343,7 @@ entities:
       data-max: NA
       data-units: NA
     -
-      attr-label: temp_{.}      
+      attr-label: temp_{depth}      
       attr-def: >-
         Water temperature at a given reservoir depth (in meters) from the surface 
       attr-defs: NA
@@ -401,44 +357,7 @@ entities:
       attr-defs: NA
       data-min: NA
       data-max: NA
-      data-units: NA 
-  -
-    data-name: cal_profile_results.zip
-    data-description: >-
-      A zip file containing 8 csvs with predicted temperature depth profiles 
-      for each calibrated reservoir model. Files within the zip are named 
-      "GLM_calibrated_ndhhr_{Prmnn_I}_NLDAS.csv". All csv files are formatted 
-      the same for each calibrated model - one row represents one day of 
-      temperature predictions at 0.5 meter depth intervals until a maximum
-      depth is reached. Each column after "time" that starts with "temp_{.}" 
-      represents depths starting at zero (reservoir water surface). Predicted 
-      temperature observations for each calibrated model can be matched to 
-      the appropriate reservoir using the "nhdhr_{Prmnn_I}" (or "site_id") 
-      component of the file naming schema.
-    attributes:
-    -
-      attr-label: time
-      attr-def: Calendar date
-      attr-defs: NA
-      data-min: NA
-      data-max: NA
       data-units: NA
-    -
-      attr-label: temp_{.}      
-      attr-def: >-
-        Water temperature at a given reservoir depth (in meters) from the surface 
-      attr-defs: NA
-      data-min: NA
-      data-max: NA
-      data-units: degrees C 
-    -
-      attr-label: ice     
-      attr-def: >-
-        a logical value (TRUE/FALSE) indicating whether or not ice cover is present
-      attr-defs: NA
-      data-min: NA
-      data-max: NA
-      data-units: NA 
 
 purpose: Fisheries biology, limnological research, and climate science.
 start-date: 19800101
@@ -460,27 +379,27 @@ contact-person: Julie A. Padilla
 contact-phone: 608-821-9901
 contact-email: jpadilla@usgs.gov
 contact-position: Physical Scientist (Data Scientist)
-contact-address: "8505 Research Way"
-contact-city: Middleton
+contact-address: "1 Gifford Pinchot Drive"
+contact-city: Madison
 contact-state: WI
-contact-zip: 53562
+contact-zip: 53726
 
 metadata-person: Julie A. Padilla
 metadata-position: Physical Scientist (Data Scientist)
 metadata-phone: 608-821-9901
 metadata-fax: 608-821-3817
 metadata-email: jpadilla@usgs.gov
-metadata-address: "8505 Research Way"
-metadata-city: Middleton
+metadata-address: "1 Gifford Pinchot Drive"
+metadata-city: Madison
 metadata-state: WI
-metadata-zip: 53562
+metadata-zip: 53726
 metadata-date: !expr format(Sys.time(),'%Y%m%d')
 
 accur-test: No formal attribute accuracy tests were conducted.
 funding-credits: >-
-  This study was funded by the [DETAILS HERE]
-  This research used resources of the Core Science Analytics and Synthesis 
-  Advanced Research Computing program at the U.S. Geological Survey.
+  This research was funded by the Department of the Interior Northeast and Midwest 
+  Climate Adaptation Science Centers with addition financial support from the
+  Midwest Glacial Lakes Partnership and the Minnesota Department of Natural Resources.
 
 process-description: >-
   The computing platform for generating data nad metadata was 
