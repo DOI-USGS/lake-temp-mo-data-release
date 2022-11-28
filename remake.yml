@@ -59,31 +59,31 @@ targets:
     command: zip(zipfile = target_name, files = temp_obs_csv, mode = I('cherry-pick'))
     
   # GLM, uncalibrated nml files - list, rename, and zip
-  uncal_glm_nml_files:
-    command: rename_nml_files(dir_in = 'in_data/2_run/out', dir_out = I('in_data/00_files_to_zip/uncal_nml_files'), cal_nml = I(FALSE))
+  GLM_uncal_nml_files:
+    command: rename_nml_files(dir_in = 'in_data/2_run/out', dir_out = I('in_data/00_files_to_zip/GLM_uncal_nml_files'), cal_nml = I(FALSE))
 
-  out_data/uncal_glm_nml.zip:
-    command: zip(zipfile = target_name, files = uncal_glm_nml_files, mode = I('cherry-pick'))  
+  out_data/GLM_uncal_nml.zip:
+    command: zip(zipfile = target_name, files = GLM_uncal_nml_files, mode = I('cherry-pick'))  
     
   # GLM, calibrated nml files - list, rename, and zip
-  cal_glm_nml_files:
-    command: rename_nml_files(dir_in = 'in_data/3_calibrate/out/all', dir_out = I('in_data/00_files_to_zip/cal_nml_files'), cal_nml = I(TRUE))
+  GLM_cal_nml_files:
+    command: rename_nml_files(dir_in = 'in_data/3_calibrate/out/all', dir_out = I('in_data/00_files_to_zip/GLM_cal_nml_files'), cal_nml = I(TRUE))
 
-  out_data/cal_glm_nml.zip:
-    command: zip(zipfile = target_name, files = cal_glm_nml_files, mode = I('cherry-pick'))
+  out_data/GLM_cal_nml.zip:
+    command: zip(zipfile = target_name, files = GLM_cal_nml_files, mode = I('cherry-pick'))
  
   # uncalibrated temperature profiles - convert file formats and zip
-  uncal_profile_files:
-    command: convert_file_to_csv(dir_in = 'in_data/4_extract/out/uncalibrated', dir_out = I('in_data/00_files_to_zip/uncal_profile_results'))
+  GLM_uncal_profile_files:
+    command: convert_file_to_csv(dir_in = 'in_data/4_extract/out/uncalibrated', dir_out = I('in_data/00_files_to_zip/GLM_uncal_profile_results'))
     
-  out_data/uncal_profile_results.zip:
-    command: zip(zipfile = target_name, files = uncal_profile_files, mode = I('cherry-pick'))
+  out_data/GLM_uncal_profile_results.zip:
+    command: zip(zipfile = target_name, files = GLM_uncal_profile_files, mode = I('cherry-pick'))
     
   # calibrated temperature profiles - convert file formats and zip
   cal_profile_files:
-    command: convert_file_to_csv(dir_in = 'in_data/4_extract/out/calibrated/all', dir_out = I('in_data/00_files_to_zip/cal_profile_results'))
+    command: convert_file_to_csv(dir_in = 'in_data/4_extract/out/calibrated/all', dir_out = I('in_data/00_files_to_zip/GLM_cal_profile_results'))
     
-  out_data/cal_profile_results.zip:
+  out_data/GLM_cal_profile_results.zip:
     command: zip(zipfile = target_name, files = cal_profile_files, mode = I('cherry-pick'))     
     
   # create metadata xml  
@@ -99,10 +99,10 @@ targets:
       "out_data/study_lakes.zip",
       "out_data/NLDAS_GLM_csv.zip",
       "out_data/temperature_obs.zip",
-      "out_data/uncal_glm_nml.zip",
-      "out_data/cal_glm_nml.zip",
-      "out_data/uncal_profile_results.zip",
-      "out_data/cal_profile_results.zip",
+      "out_data/GLM_uncal_nml.zip",
+      "out_data/GLM_cal_nml.zip",
+      "out_data/GLM_uncal_profile_results.zip",
+      "out_data/GLM_cal_profile_results.zip",
       "out_xml/fgdc_metadata.xml",
       sources = "src/sb_utils.R")
 
