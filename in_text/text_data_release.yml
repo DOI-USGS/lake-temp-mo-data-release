@@ -229,7 +229,7 @@ entities:
       data-max: NA
       data-units: degrees C
   -
-    data-name: {model_type}_glm_nml.zip
+    data-name: GLM_{model_type}_nml.zip
     data-description: >-
       A zip file containing 8 glm3.nml files for a {model_type} of "cal" 
       (calibrated) or "uncal" (uncalibrated). There is one NML file for each lake 
@@ -329,7 +329,7 @@ entities:
       data-max: NA
       data-units: NA
   -
-    data-name: {model_type}_profile_results.zip
+    data-name: GLM_{model_type}_profile_results.zip
     data-description: >-
       A zip file containing 8 csvs with predicted temperature depth profiles 
       for each {model_type} (either "cal" for calibrated or "uncal" for 
