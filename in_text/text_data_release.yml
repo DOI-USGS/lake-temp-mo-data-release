@@ -15,8 +15,8 @@ abstract: >-
   for each of the eight reservoirs are included. In addition, the spatial, 
   observational, and climatic driver datasets ('study_lakes.zip', 'temperature_obs.zip', 
   and 'NLDAS_GLM_csv.zip', respectively) required to run the models are available. 
-  Lastly, a crosswalk between the reservoir names, the National Hydrography 
-  Dataset High Resolution (NHDHR) identification codes, and identifiers defined by
+  Lastly, a crosswalk between the reservoir names, the <li><a href="https://www.usgs.gov/national-hydrography/nhdplus-high-resolution">USGS National Hydrography 
+  Dataset High Resolution (NHDHR)</a></li> identification codes, and identifiers defined by
   the University of Missouri is provided (see the 'mo_nhdhr_xwalk.csv' file).
   
   This research was funded by the Midwest Climate Adaptation Science Center (MW CASC).
@@ -157,7 +157,8 @@ entities:
       data-units: W m^-2	
     - 
       attr-label: AirTemp	
-      attr-def: Air temperature above the surface of the lake, as a daily average.
+      attr-def: >- 
+        Air temperature above the surface of the lake, as a daily average.
       attr-defs: Read et al., 2021
       data-min: -27.2049997
       data-max: 37.2866735
@@ -209,21 +210,24 @@ entities:
     attributes:
     -
       attr-label: date
-      attr-def: Calendar date of temperature measurement
+      attr-def: >- 
+        Calendar date of temperature measurement
       attr-defs: NA
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: depth
-      attr-def: Depth of temperature measurement below water surface
+      attr-def: >- 
+        Depth of temperature measurement below water surface
       attr-defs: NA
       data-min: 0
       data-max: NA
       data-units: meters
     -
       attr-label: temp
-      attr-def: Water temperature
+      attr-def: >- 
+        Water temperature
       attr-defs: NA
       data-min: NA
       data-max: NA
@@ -238,77 +242,88 @@ entities:
     attributes:
     -
       attr-label: glm_setup
-      attr-def: parameters for setting up the General Lake Model and defining constants
+      attr-def: >- 
+        parameters for setting up the General Lake Model and defining constants
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: mixing
-      attr-def: parameters describing the mixing dynamics of the lake for the General Lake Model
+      attr-def: >-
+        parameters describing the mixing dynamics of the lake for the General Lake Model
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: morphometry
-      attr-def: parameters describing the depth/area relationship of the lake for the General Lake Model
+      attr-def: >- 
+        parameters describing the depth/area relationship of the lake for the General Lake Model
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: time
-      attr-def: parameters describing the time period and frequency of model runs for the General Lake Model
+      attr-def: >- 
+        parameters describing the time period and frequency of model runs for the General Lake Model
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: output
-      attr-def: parameters describing how the outputs of model runs from the General Lake Model are written
+      attr-def: >- 
+        parameters describing how the outputs of model runs from the General Lake Model are written
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: init_profiles
-      attr-def: parameters describing General Lake Model initial conditions
+      attr-def: >- 
+        parameters describing General Lake Model initial conditions
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: meteorology
-      attr-def: parameters describing time series drivers of General Lake Model runs
+      attr-def: >- 
+        parameters describing time series drivers of General Lake Model runs
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: bird_model
-      attr-def: parameters describing the use (if applicable) of the Bird model for General Lake Model runs
+      attr-def: >- 
+        parameters describing the use (if applicable) of the Bird model for General Lake Model runs
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: light
-      attr-def: parameters describing inflows to the General Lake Model
+      attr-def: >- 
+        parameters describing inflows to the General Lake Model
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: inflow
-      attr-def: parameters describing inflows to the General Lake Model
+      attr-def: >- 
+        parameters describing inflows to the General Lake Model
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: outflow
-      attr-def: parameters describing outflows from the General Lake Model
+      attr-def: >- 
+        parameters describing outflows from the General Lake Model
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
@@ -344,14 +359,15 @@ entities:
     attributes:
     -
       attr-label: time
-      attr-def: Calendar date
+      attr-def: >-
+       Calendar date
       attr-defs: NA
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: temp_{depth}      
-      attr-def: >-
+      attr-def: >- 
         Water temperature at a given reservoir depth (in meters) from the surface 
       attr-defs: NA
       data-min: NA
@@ -359,7 +375,7 @@ entities:
       data-units: degrees C 
     -
       attr-label: ice     
-      attr-def: >-
+      attr-def: >- 
         a logical value (TRUE/FALSE) indicating whether or not ice cover is present
       attr-defs: NA
       data-min: NA
