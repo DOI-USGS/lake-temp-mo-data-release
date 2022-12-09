@@ -423,7 +423,9 @@ funding-credits: >-
   This research was funded by the Midwest Climate Adaptation Science Center (MW CASC).
 
 process-description: >-
-  The computing platform for generating data nad metadata was 
+  [More detail needed here] The following datasets were generated following ... 
+  
+  The computing platform for generating data and metadata was 
   x86_64-w64-mingw32/x64 (64-bit) and R version 4.1.3 (2022-03-10).
   
   This dataset was generated using open source tools available in the R 
