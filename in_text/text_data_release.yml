@@ -8,7 +8,9 @@ abstract: >-
   when temperatures are predicted throughout the water column (known as
   temperature profiles). This dataset provides estimates of water temperature
   at half meter depths for eight reservoirs in Missouri, USA using version 3 
-  of the General Lake Model (Hipsey et al. 2019). The reservoirs are [INSERT NAMES]
+  of the General Lake Model (Hipsey et al. 2019). The reservoirs are: Bull Shoals Lake,
+  Lake Ozark, Lake Stockton, Mark Twain Lake, Pomme De Terre Lake, Table Rock Lake,
+  Truman Reservoir, and Wapapello Lake.
   
   Both calibrated and uncalibrated model configurations (see '*_glm_nml.zip' 
   files), as well as, predicted temperatures (see '*_profile_results.zip' files) 
