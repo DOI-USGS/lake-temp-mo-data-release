@@ -17,8 +17,8 @@ abstract: >-
   for each of the eight reservoirs are included. In addition, the spatial, 
   observational, and climatic driver datasets ('study_lakes.zip', 'temperature_obs.zip', 
   and 'NLDAS_GLM_csv.zip', respectively) required to run the models are available. 
-  Lastly, a crosswalk between the reservoir names, the <li><a href="https://www.usgs.gov/national-hydrography/nhdplus-high-resolution">USGS National Hydrography 
-  Dataset High Resolution (NHDHR)</a></li> identification codes, and identifiers defined by
+  Lastly, a crosswalk between the reservoir names, the <a href="https://www.usgs.gov/national-hydrography/nhdplus-high-resolution">USGS National Hydrography 
+  Dataset High Resolution (NHDHR)</a> identification codes, and identifiers defined by
   the University of Missouri is provided (see the 'mo_nhdhr_xwalk.csv' file).
   
   This research was funded by the Midwest Climate Adaptation Science Center (MW CASC).
