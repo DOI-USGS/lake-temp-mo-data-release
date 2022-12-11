@@ -125,7 +125,7 @@ entities:
       A zip file containing 8 csvs - one for each reservoir modeled. Files within 
       the zip are named "NLDAS_time[0.379366]_x{x}_y{y}.csv" where the x and y 
       locations are longitude and latitude indices from NLDAS of the 
-      individual meteological data cell (data are from Mitchell et al. 2004). The 
+      individual meteological spatial data cell (data are from Mitchell et al. 2004). The 
       format of the data is identical for each file. Meteorological files can be
       matched to the appropriate model nml files using the "meteo_fl" field in 
       each nml file.
@@ -134,7 +134,7 @@ entities:
       attr-label: time
       attr-def: Date of this weather estimate.
       attr-defs: Read et al., 2021
-      data-min: 1979-01-20
+      data-min: 1979-01-02
       data-max: 2022-04-11
       data-units: Date  
     - 
@@ -168,8 +168,7 @@ entities:
       attr-defs: Read et al., 2021
       data-min: 24.7956927
       data-max: 97.4631846
-      data-units: >-
-        %
+      data-units: %
     - 
       attr-label: WindSpeed	
       attr-def: >- 
@@ -211,22 +210,22 @@ entities:
       attr-label: date
       attr-def: Calendar date of temperature measurement
       attr-defs: NA
-      data-min: NA
-      data-max: NA
+      data-min: 1979-03-12
+      data-max: 2021-09-22
       data-units: NA
     -
       attr-label: depth
       attr-def: Depth of temperature measurement below water surface
       attr-defs: NA
       data-min: 0
-      data-max: NA
+      data-max: 95
       data-units: meters
     -
       attr-label: temp
       attr-def: Water temperature
       attr-defs: NA
-      data-min: NA
-      data-max: NA
+      data-min: 2.5
+      data-max: 34.93
       data-units: degrees C
   -
     data-name: GLM_{model_type}_nml.zip
