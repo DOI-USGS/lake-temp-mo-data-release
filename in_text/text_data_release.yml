@@ -237,7 +237,7 @@ entities:
     attributes:
     -
       attr-label: glm_setup
-      attr-def: parameters for setting up the General Lake Model and defining constants
+      attr-def: parameters (ie. max layers, layer)for setting up the General Lake Model and defining constants
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
@@ -260,8 +260,8 @@ entities:
       attr-label: time
       attr-def: parameters describing the time period and frequency of model runs for the General Lake Model
       attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
+      data-min: 1979-01-02
+      data-max: 2022-04-11
       data-units: NA
     -
       attr-label: output
@@ -343,10 +343,10 @@ entities:
     attributes:
     -
       attr-label: time
-      attr-def: Calendar date
+      attr-def: Calendar date of predicted temperature depth values
       attr-defs: NA
-      data-min: NA
-      data-max: NA
+      data-min: 1980-01-01
+      data-max: 2021-12-31
       data-units: NA
     -
       attr-label: temp_{depth}      
