@@ -61,13 +61,13 @@ entities:
   -
     data-name: mo_nhdhr_xwalk.csv
     data-description: >-
-      A csv file containing a crosswalk between the reservoir name and the site 
+      A csv file containing a crosswalk between the reservoir name (attribute is Lake Name) and the site 
       identification (site_id) number for this dataset.
     attributes:
     -
       attr-label: site_id
       attr-def: >-
-        Lake identification number for this dataset. It is the Prmnn_I from NHD high-res 
+        Lake identification number for this dataset. It is the ~Prmnn_I~ Permanent Identifier (Prmnn_I) from NHD high-res 
         prefixed with source, as "nhdhr_{Prmnn_I}". The ids have a mix of characters and 
         numbers. Some can include special characters, such as "{" and "}", but not all do.
       attr-defs: >-
@@ -78,7 +78,7 @@ entities:
     -
       attr-label: Missouri_ID
       attr-def: >-
-        A state-specific ID number used by the University of Missouri to identify the modeled 
+        A state-specific identification number used by the University of Missouri to identify the modeled 
         reservoir. Each number is prefixed with "Missouri_".
       attr-defs: NA
       data-min: NA
