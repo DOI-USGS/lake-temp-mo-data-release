@@ -111,7 +111,7 @@ entities:
       attr-label: site_id
       attr-def: >-
         Lake identification number for this dataset. It is the Prmnn_I from NHD high-res 
-        prefixed with source, as "nhdhr_{Prmnn_I}". Polygons can can be matched to each 
+        prefixed with source, as "nhdhr_{Prmnn_I}". Polygons can be matched to each 
         reservoir name using the "nhdhr_{Prmnn_I}" (or "site_id") component of 
         this attribute table and the "site_id" field in the "mo_nhdhr_xwalk.csv" file.
       attr-defs: >-
