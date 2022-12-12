@@ -1,5 +1,5 @@
 title: >-
-  Data release: Predictions of lake water temperatures for eight reservoirs in Missouri US, 1980-2021
+  Predictions of lake water temperatures for eight reservoirs in Missouri US, 1980-2021
 
 
 abstract: >-
@@ -8,15 +8,17 @@ abstract: >-
   when temperatures are predicted throughout the water column (known as
   temperature profiles). This dataset provides estimates of water temperature
   at half meter depths for eight reservoirs in Missouri, USA using version 3 
-  of the General Lake Model (Hipsey et al. 2019). The reservoirs are [INSERT NAMES]
+  of the General Lake Model (Hipsey et al. 2019). The reservoirs are: Bull Shoals Lake,
+  Lake Ozark, Lake Stockton, Mark Twain Lake, Pomme De Terre Lake, Table Rock Lake,
+  Truman Reservoir, and Wapapello Lake.
   
-  Both calibrated and uncalibrated model configurations (see '*_glm_nml.zip' 
-  files), as well as, predicted temperatures (see '*_profile_results.zip' files) 
+  Both calibrated and uncalibrated model configurations (see 'GLM_{cal|uncal}_nml.zip' 
+  files), as well as, predicted temperatures (see 'GLM_{cal|uncal}_profile_results.zip' files) 
   for each of the eight reservoirs are included. In addition, the spatial, 
   observational, and climatic driver datasets ('study_lakes.zip', 'temperature_obs.zip', 
   and 'NLDAS_GLM_csv.zip', respectively) required to run the models are available. 
-  Lastly, a crosswalk between the reservoir names, the National Hydrography 
-  Dataset High Resolution (NHDHR) identification codes, and identifiers defined by
+  Lastly, a crosswalk between the reservoir names, the <a href="https://www.usgs.gov/national-hydrography/nhdplus-high-resolution">USGS National Hydrography 
+  Dataset High Resolution (NHDHR)</a> identification codes, and identifiers defined by
   the University of Missouri is provided (see the 'mo_nhdhr_xwalk.csv' file).
   
   This research was funded by the Midwest Climate Adaptation Science Center (MW CASC).
@@ -53,7 +55,19 @@ cross-cites:
       Data release: Process-based predictions of lake water temperature in the Midwest US
     pubdate: 2021
     link: http://dx.doi.org/10.5066/P9CA6XP8
-
+  -
+    authors: ['Jordan S. Read', 'Xiaowei Jia', 'Jared D. Willard', 'Alison A. Appling', 'Jacob A. Zwart', 'Samantha K. Oliver', 'Anuj Karpatne', 'Gretchen J.A. Hansen', 'William Watkins', 'Michael Steinback', 'Vipin Kumar']
+    title: >-
+      Process-Guided Deep Learning Predictions of Lake Water Temperature
+    pubdate: 2019
+    link: https://doi.org/10.1029/2019WR024922    
+  -
+    authors: ['Jared D. Willard', 'Jordan S. Read', 'Simon S. Topp', 'Gretchen J.A. Hansen', 'Vipin Kumar']
+    title: >-
+      Daily surface temperature predictions for 185,549 U.S. lakes with associated observations and meteorological conditions (1980-2020)
+    pubdate: 2022
+    link: https://doi.org/10.1002/lol2.10249
+    
 process-date: !expr format(Sys.time(),'%Y%m%d')
 file-format: one comma-delimited file, one zipped shapefile, and six zip files containing csvs and model files
 
@@ -157,7 +171,8 @@ entities:
       data-units: W m^-2	
     - 
       attr-label: AirTemp	
-      attr-def: Air temperature above the surface of the lake, as a daily average.
+      attr-def: >- 
+        Air temperature above the surface of the lake, as a daily average.
       attr-defs: Read et al., 2021
       data-min: -27.2049997
       data-max: 37.2866735
@@ -208,21 +223,24 @@ entities:
     attributes:
     -
       attr-label: date
-      attr-def: Calendar date of temperature measurement
+      attr-def: >- 
+        Calendar date of temperature measurement
       attr-defs: NA
       data-min: 1979-03-12
       data-max: 2021-09-22
       data-units: NA
     -
       attr-label: depth
-      attr-def: Depth of temperature measurement below water surface
+      attr-def: >- 
+        Depth of temperature measurement below water surface
       attr-defs: NA
       data-min: 0
       data-max: 95
       data-units: meters
     -
       attr-label: temp
-      attr-def: Water temperature
+      attr-def: >- 
+        Water temperature
       attr-defs: NA
       data-min: 2.5
       data-max: 34.93
@@ -244,70 +262,80 @@ entities:
       data-units: NA
     -
       attr-label: mixing
-      attr-def: parameters describing the mixing dynamics of the lake for the General Lake Model
+      attr-def: >-
+        parameters describing the mixing dynamics of the lake for the General Lake Model
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: morphometry
-      attr-def: parameters describing the depth/area relationship of the lake for the General Lake Model
+      attr-def: >- 
+        parameters describing the depth/area relationship of the lake for the General Lake Model
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: time
-      attr-def: parameters describing the time period and frequency of model runs for the General Lake Model
+      attr-def: >- 
+        parameters describing the time period and frequency of model runs for the General Lake Model
       attr-defs: Hipsey et al. 2019
       data-min: 1979-01-02
       data-max: 2022-04-11
       data-units: NA
     -
       attr-label: output
-      attr-def: parameters describing how the outputs of model runs from the General Lake Model are written
+      attr-def: >- 
+        parameters describing how the outputs of model runs from the General Lake Model are written
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: init_profiles
-      attr-def: parameters describing General Lake Model initial conditions
+      attr-def: >- 
+        parameters describing General Lake Model initial conditions
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: meteorology
-      attr-def: parameters describing time series drivers of General Lake Model runs
+      attr-def: >- 
+        parameters describing time series drivers of General Lake Model runs
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: bird_model
-      attr-def: parameters describing the use (if applicable) of the Bird model for General Lake Model runs
+      attr-def: >- 
+        parameters describing the use (if applicable) of the Bird model for General Lake Model runs
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: light
-      attr-def: parameters describing inflows to the General Lake Model
+      attr-def: >- 
+        parameters describing inflows to the General Lake Model
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: inflow
-      attr-def: parameters describing inflows to the General Lake Model
+      attr-def: >- 
+        parameters describing inflows to the General Lake Model
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: outflow
-      attr-def: parameters describing outflows from the General Lake Model
+      attr-def: >- 
+        parameters describing outflows from the General Lake Model
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
@@ -350,7 +378,7 @@ entities:
       data-units: NA
     -
       attr-label: temp_{depth}      
-      attr-def: >-
+      attr-def: >- 
         Water temperature at a given reservoir depth (in meters) from the surface 
       attr-defs: NA
       data-min: NA
@@ -358,7 +386,7 @@ entities:
       data-units: degrees C 
     -
       attr-label: ice     
-      attr-def: >-
+      attr-def: >- 
         a logical value (TRUE/FALSE) indicating whether or not ice cover is present
       attr-defs: NA
       data-min: NA
@@ -403,10 +431,24 @@ metadata-date: !expr format(Sys.time(),'%Y%m%d')
 
 accur-test: No formal attribute accuracy tests were conducted.
 funding-credits: >-
-  This research was funded by the Midwest Climate Adaptation Science Center (MW CASC).
+  This research was funded by the Midwest Climate Adaptation Science Center 
+  (MW CASC).
 
 process-description: >-
-  The computing platform for generating data nad metadata was 
+  The data aggregation methods used to parameterize the uncalibrated models and 
+  to assemble the temperature profile data are described in Willard et al. 2022. 
+  This data release used these methods to aggregate additional cooperator data 
+  for the eight reservoirs of interest. This data release also used full 
+  temperature profiles for each sampling date rather than onyl using surface 
+  temperatures.
+
+  Model calibration was acheived using a three parameter optimization process 
+  described in Read et al. 2019 and optimizing the following three parameters: 
+  the bulk aerodynamic transfer coefficient for momentum (cd), the scaling factor 
+  to adjust the shortwave radiation data (sw_factor), and the light extinction 
+  coefficient(Kw). 
+  
+  The computing platform for generating data and metadata was 
   x86_64-w64-mingw32/x64 (64-bit) and R version 4.1.3 (2022-03-10).
   
   This dataset was generated using open source tools available in the R 
