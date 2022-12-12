@@ -55,7 +55,19 @@ cross-cites:
       Data release: Process-based predictions of lake water temperature in the Midwest US
     pubdate: 2021
     link: http://dx.doi.org/10.5066/P9CA6XP8
-
+  -
+    authors: ['Jordan S. Read', 'Xiaowei Jia', 'Jared D. Willard', 'Alison A. Appling', 'Jacob A. Zwart', 'Samantha K. Oliver', 'Anuj Karpatne', 'Gretchen J.A. Hansen', 'William Watkins', 'Michael Steinback', 'Vipin Kumar']
+    title: >-
+      Process-Guided Deep Learning Predictions of Lake Water Temperature
+    pubdate: 2019
+    link: https://doi.org/10.1029/2019WR024922    
+  -
+    authors: ['Jared D. Willard', 'Jordan S. Read', 'Simon S. Topp', 'Gretchen J.A. Hansen', 'Vipin Kumar']
+    title: >-
+      Daily surface temperature predictions for 185,549 U.S. lakes with associated observations and meteorological conditions (1980-2020)
+    pubdate: 2022
+    link: https://doi.org/10.1002/lol2.10249
+    
 process-date: !expr format(Sys.time(),'%Y%m%d')
 file-format: one comma-delimited file, one zipped shapefile, and six zip files containing csvs and model files
 
