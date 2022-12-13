@@ -24,7 +24,7 @@ abstract: >-
   This research was funded by the Midwest Climate Adaptation Science Center (MW CASC).
       
 authors: ["Julie A Padilla", "Jordan S Read", "Lindsay Platt", "Hayley Corson-Dosch", "Wallace (Andy) Mcaliley"]
-pubdate: 2022-12-15
+pubdate: 20221215
 doi: https://doi.org/10.5066/P9FY8JQC # replace with actual DOI
 
 build-environment: Multiple computer systems were used to generate these data, including linux, OSX. The open source language R was used on all systems.
