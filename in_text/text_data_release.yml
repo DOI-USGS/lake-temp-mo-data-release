@@ -224,7 +224,7 @@ entities:
     -
       attr-label: date
       attr-def: >- 
-        Calendar date of temperature measurement
+        Calendar date of temperature measurement. The calendar date of this data set is used to subset the observed data to the model calibration period (1980-01-01 to 2021-12-31).
       attr-defs: NA
       data-min: 1979-03-12
       data-max: 2021-09-22
