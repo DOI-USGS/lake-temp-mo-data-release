@@ -182,7 +182,7 @@ entities:
       attr-defs: Read et al., 2021
       data-min: 24.7956927
       data-max: 97.4631846
-      data-units: %
+      data-units: percent
     - 
       attr-label: WindSpeed	
       attr-def: >- 
