@@ -18,7 +18,7 @@ abstract: >-
   observational, and climatic driver datasets ('study_lakes.zip', 'temperature_obs.zip', 
   and 'NLDAS_GLM_csv.zip', respectively) required to run the models are available. 
   Lastly, a crosswalk between the reservoir names, the <a href="https://www.usgs.gov/national-hydrography/nhdplus-high-resolution">USGS National Hydrography 
-  Dataset High Resolution (NHDHR)</a> identification codes, and identifiers defined by
+  Dataset High Resolution (NHDHR)</a> permanent identification codes (Prmnn_I), and identifiers defined by
   the University of Missouri is provided (see the 'mo_nhdhr_xwalk.csv' file).
   
   This research was funded by the Midwest Climate Adaptation Science Center (MW CASC).
@@ -81,8 +81,7 @@ entities:
     -
       attr-label: site_id
       attr-def: >-
-        Lake identification number for this dataset. It is the ~Prmnn_I~ Permanent Identifier (Prmnn_I) from NHD high-res 
-        prefixed with source, as "nhdhr_{Prmnn_I}". The ids have a mix of characters and 
+        Lake identification number for this dataset. It is the Permanent Identifier number (Prmnn_I) from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}". The ids have a mix of characters and 
         numbers. Some can include special characters, such as "{" and "}", but not all do.
       attr-defs: >-
         http://nhd.usgs.gov/
