@@ -75,13 +75,13 @@ entities:
   -
     data-name: mo_nhdhr_xwalk.csv
     data-description: >-
-      A csv file containing a crosswalk between the reservoir name and the site 
+      A csv file containing a crosswalk between the reservoir name (attribute is Lake Name) and the site 
       identification (site_id) number for this dataset.
     attributes:
     -
       attr-label: site_id
       attr-def: >-
-        Lake identification number for this dataset. It is the Prmnn_I from NHD high-res 
+        Lake identification number for this dataset. It is the ~Prmnn_I~ Permanent Identifier (Prmnn_I) from NHD high-res 
         prefixed with source, as "nhdhr_{Prmnn_I}". The ids have a mix of characters and 
         numbers. Some can include special characters, such as "{" and "}", but not all do.
       attr-defs: >-
@@ -92,7 +92,7 @@ entities:
     -
       attr-label: Missouri_ID
       attr-def: >-
-        A state-specific ID number used by the University of Missouri to identify the modeled 
+        A state-specific identification number used by the University of Missouri to identify the modeled 
         reservoir. Each number is prefixed with "Missouri_".
       attr-defs: NA
       data-min: NA
@@ -125,7 +125,7 @@ entities:
       attr-label: site_id
       attr-def: >-
         Lake identification number for this dataset. It is the Prmnn_I from NHD high-res 
-        prefixed with source, as "nhdhr_{Prmnn_I}". Polygons can can be matched to each 
+        prefixed with source, as "nhdhr_{Prmnn_I}". Polygons can be matched to each 
         reservoir name using the "nhdhr_{Prmnn_I}" (or "site_id") component of 
         this attribute table and the "site_id" field in the "mo_nhdhr_xwalk.csv" file.
       attr-defs: >-
@@ -139,7 +139,7 @@ entities:
       A zip file containing 8 csvs - one for each reservoir modeled. Files within 
       the zip are named "NLDAS_time[0.379366]_x{x}_y{y}.csv" where the x and y 
       locations are longitude and latitude indices from NLDAS of the 
-      individual meteological data cell (data are from Mitchell et al. 2004). The 
+      individual meteological spatial data cell (data are from Mitchell et al. 2004). The 
       format of the data is identical for each file. Meteorological files can be
       matched to the appropriate model nml files using the "meteo_fl" field in 
       each nml file.
@@ -148,7 +148,7 @@ entities:
       attr-label: time
       attr-def: Date of this weather estimate.
       attr-defs: Read et al., 2021
-      data-min: 1979-01-20
+      data-min: 1979-01-02
       data-max: 2022-04-11
       data-units: Date  
     - 
@@ -183,8 +183,7 @@ entities:
       attr-defs: Read et al., 2021
       data-min: 24.7956927
       data-max: 97.4631846
-      data-units: >-
-        %
+      data-units: %
     - 
       attr-label: WindSpeed	
       attr-def: >- 
@@ -227,8 +226,8 @@ entities:
       attr-def: >- 
         Calendar date of temperature measurement
       attr-defs: NA
-      data-min: NA
-      data-max: NA
+      data-min: 1979-03-12
+      data-max: 2021-09-22
       data-units: NA
     -
       attr-label: depth
@@ -236,15 +235,15 @@ entities:
         Depth of temperature measurement below water surface
       attr-defs: NA
       data-min: 0
-      data-max: NA
+      data-max: 95
       data-units: meters
     -
       attr-label: temp
       attr-def: >- 
         Water temperature
       attr-defs: NA
-      data-min: NA
-      data-max: NA
+      data-min: 2.5
+      data-max: 34.93
       data-units: degrees C
   -
     data-name: GLM_{model_type}_nml.zip
@@ -256,8 +255,7 @@ entities:
     attributes:
     -
       attr-label: glm_setup
-      attr-def: >- 
-        parameters for setting up the General Lake Model and defining constants
+      attr-def: parameters (ie. max layers, layer)for setting up the General Lake Model and defining constants
       attr-defs: Hipsey et al. 2019
       data-min: NA
       data-max: NA
@@ -283,8 +281,8 @@ entities:
       attr-def: >- 
         parameters describing the time period and frequency of model runs for the General Lake Model
       attr-defs: Hipsey et al. 2019
-      data-min: NA
-      data-max: NA
+      data-min: 1979-01-02
+      data-max: 2022-04-11
       data-units: NA
     -
       attr-label: output
@@ -373,11 +371,10 @@ entities:
     attributes:
     -
       attr-label: time
-      attr-def: >-
-       Calendar date
+      attr-def: Calendar date of predicted temperature depth values
       attr-defs: NA
-      data-min: NA
-      data-max: NA
+      data-min: 1980-01-01
+      data-max: 2021-12-31
       data-units: NA
     -
       attr-label: temp_{depth}      
