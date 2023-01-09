@@ -1,4 +1,4 @@
-This data release corresponds to the following 2022 data release: "Predictions of lake water temperatures for eight reservoirs in Missouri US, 1980-2021" ([doi:10.5066/P9FY8JQC](https://doi.org/10.5066/P9FY8JQC)). The modeling to support this data release is contained in [`lake-temperature-missouri-models`](https://github.com/usgs-r/lake-temperature-missouri-models).
+This data release corresponds to the following 2022 data release: _"Predictions of lake water temperatures for eight reservoirs in Missouri US, 1980-2021"_ ([doi:10.5066/P9FY8JQC](https://doi.org/10.5066/P9FY8JQC)). The modeling to support this data release is contained in [`lake-temperature-missouri-models`](https://github.com/usgs-r/lake-temperature-missouri-models).
 
 ## code
 
